@@ -27,7 +27,6 @@ private:
 	void heapify(int i);
 	void moveDown(int i);
 };
-
 template<class T>
 void BinaryHeapQueue<T>::push(T data, int priority)
 {

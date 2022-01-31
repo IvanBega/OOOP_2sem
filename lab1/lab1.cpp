@@ -8,7 +8,7 @@
 int main()
 {
 	using namespace std;
-	cout << "Demonstrating LinkedListQueue: \n";
+	/*cout << "Demonstrating LinkedListQueue: \n";
 	UserInterface::Test<LinkedListQueue<Date>>(10);
 	cout << "\n";
 	cout << "Demonstrating VectorQueue: \n";
@@ -47,5 +47,14 @@ int main()
 			option = 3;
 			break;
 		}
-	}
+	}*/
+	BSTQueue<int>* queue = new BSTQueue<int>;
+	queue->push(5 ,5);
+	queue->push(6 ,5);
+	queue->push(2, 2);
+	queue->push(3, 2);
+	cout << queue->pop() << "\n";
+	cout << queue->pop() << "\n";
+	cout << queue->pop() << "\n";
+	cout << queue->pop() << "\n";
 }

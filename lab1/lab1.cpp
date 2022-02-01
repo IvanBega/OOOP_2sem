@@ -5,20 +5,7 @@
 #include "BinaryHeapQueue.h"
 #include "Date.h"
 #include "UserInterface.h"
-class Test
-{
-private:
-	uint8_t x;
-public:
-	void setX(uint8_t a)
-	{
-		x = a;
-	}
-	uint8_t getX()
-	{
-		return x;
-	}
-};
+#include "Time.h"
 int main()
 {
 	using namespace std;
@@ -74,8 +61,4 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	auto test = new Test();
-	test->setX(15);
-	cout << test->getX();
-	
 }

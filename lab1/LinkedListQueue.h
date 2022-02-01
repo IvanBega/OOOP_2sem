@@ -6,7 +6,7 @@ class LinkedListQueue : public Queue<T>
 public:
 	void push(T data, int priority);
 	T pop();
-	T seek();
+	T peek();
 	~LinkedListQueue()
 	{
 			
@@ -53,14 +53,20 @@ void LinkedListQueue<T>::push(T data, int priority)
 template<class T>
 T LinkedListQueue<T>::pop()
 {
-	Node* temp = head;
-	T data = head->data;
-	head = head->next;
-	delete temp;
-	return data;
+	if (head != nullptr)
+	{
+		Node* temp = head;
+		T data = head->data;
+		head = head->next;
+		delete temp;
+		return data;
+	}
+	throw std::runtime_error("Queue is empty");
 }
 template<class T>
-T LinkedListQueue<T>::seek()
+T LinkedListQueue<T>::peek()
 {
-	return head->data;
+	if (head != nullptr)
+		return head->data;
+	throw std::runtime_error("Queue is empty");
 }

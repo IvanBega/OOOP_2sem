@@ -100,7 +100,7 @@ void UserInterface::ConsoleQueueInterface()
 		switch (option)
 		{
 		case 1:
-			cout << "Top element is " << q->seek() << "\n";
+			cout << "Top element is " << q->peek() << "\n";
 			break;
 		case 2:
 			cout << "Enter data: ";

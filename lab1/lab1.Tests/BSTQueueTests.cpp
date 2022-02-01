@@ -20,7 +20,7 @@ namespace lab1Tests
 		{
 			auto q = new BSTQueue<int>;
 			q->push(100, 1);
-			int pop = q->seek();
+			int pop = q->peek();
 			Assert::AreEqual(100, pop);
 		}
 		TEST_METHOD(AddAndPopElementsSamePriority)

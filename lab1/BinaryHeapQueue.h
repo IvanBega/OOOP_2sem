@@ -7,7 +7,7 @@ class BinaryHeapQueue : public Queue<T>
 {
 public:
 	void push(T data, int priority);
-	T seek();
+	T peek();
 	T pop();
 private:
 	struct elem
@@ -37,20 +37,26 @@ void BinaryHeapQueue<T>::push(T data, int priority)
 	heapify(size);
 }
 template<class T>
-T BinaryHeapQueue<T>::seek()
+T BinaryHeapQueue<T>::peek()
 {
-	return arr[0].data;
+	if (!arr.empty())
+		return arr[0].data;
+	throw std::runtime_error("Queue is empty");
 }
 template<class T>
 T BinaryHeapQueue<T>::pop()
 {
-	T data = arr[0].data;
-	std::swap(arr[0], arr[size]);
-	arr.pop_back();
-	size--;
+	if (!arr.empty())
+	{
+		T data = arr[0].data;
+		std::swap(arr[0], arr[size]);
+		arr.pop_back();
+		size--;
 
-	moveDown(0);
-	return data;
+		moveDown(0);
+		return data;
+	}
+	throw std::runtime_error("Queue is empty");
 }
 template<class T>
 int BinaryHeapQueue<T>::parentIndex(int i)

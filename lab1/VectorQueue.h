@@ -33,14 +33,22 @@ public:
 	}
 	T pop()
 	{
-		elem temp = arr.back();
-		arr.pop_back();
-		return temp.data;
+		if (!arr.empty())
+		{
+			elem temp = arr.back();
+			arr.pop_back();
+			return temp.data;
+		}
+		throw std::runtime_error("Queue is empty");
 	}
-	T seek()
+	T peek()
 	{
-		elem last = arr.back();
-		return last.data;
+		if (!arr.empty())
+		{
+			elem last = arr.back();
+			return last.data;
+		}
+		throw std::runtime_error("Queue is empty");
 	}
 	~VectorQueue()
 	{

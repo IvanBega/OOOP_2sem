@@ -7,7 +7,7 @@ class BSTQueue : public Queue<T>
 {
 public:
 	void push(T data, int priority);
-	T seek();	
+	T peek();	
 	T pop();
 	~BSTQueue()
 	{
@@ -52,47 +52,53 @@ void BSTQueue<T>::push(T data, int priority)
 		insert(data, priority);
 }
 template<class T>
-T BSTQueue<T>::seek()
+T BSTQueue<T>::peek()
 {
-	return minTree()->data->seek();
+	if (head != nullptr)
+		return minTree()->data->peek();
+	throw std::runtime_error("Queue is empty");
 }
 template<class T>
 T BSTQueue<T>::pop()
 {
-	if (head->lt == nullptr)
+	if (head != nullptr)
 	{
-		T data_to_pop = head->data->pop();
-		head->size--;
-		if (head->size > 0)
+		if (head->lt == nullptr)
+		{
+			T data_to_pop = head->data->pop();
+			head->size--;
+			if (head->size > 0)
+				return data_to_pop;
+
+			Tree* temp = head;
+			head = head->rt;
+			delete temp;
 			return data_to_pop;
 
-		Tree* temp = head;
-		head = head->rt;
-		delete temp;
-		return data_to_pop;
+		}
+		Tree* prev = nullptr, * current = head;
+		while (current->lt)
+		{
+			prev = current;
+			current = current->lt;
+		}
+		T data_to_pop = current->data->pop();
+		current->size--;
+		if (current->size > 0)
+			return data_to_pop;
+		if (prev && current->rt)
+		{
+			prev->lt = current->rt;
+		}
+		else
+		{
+			prev->lt = nullptr;
+		}
 
-	}
-	Tree* prev = nullptr, * current = head;
-	while (current->lt)
-	{
-		prev = current;
-		current = current->lt;
-	}
-	T data_to_pop = current->data->pop();
-	current->size--;
-	if (current->size > 0)
+		delete current;
 		return data_to_pop;
-	if (prev && current->rt)
-	{
-		prev->lt = current->rt;
 	}
-	else
-	{
-		prev->lt = nullptr;
-	}
-
-	delete current;
-	return data_to_pop;
+	throw std::runtime_error("Queue is empty");
 }
 template<class T> typename
 void BSTQueue<T>::insert(T data, int priority)

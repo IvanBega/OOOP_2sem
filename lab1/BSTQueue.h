@@ -1,5 +1,6 @@
 #pragma once
 #include "Queue.h"
+#include "LinkedListQueue.h"
 #include <iostream>
 template<class T>
 class BSTQueue : public Queue<T>

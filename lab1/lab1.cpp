@@ -48,7 +48,7 @@ int main()
 			break;
 		}
 	}*/
-	BSTQueue<int>* queue = new BSTQueue<int>;
+	/*BSTQueue<int>* queue = new BSTQueue<int>;
 	queue->push(5 ,5);
 	queue->push(6 ,5);
 	queue->push(2, 2);
@@ -56,5 +56,6 @@ int main()
 	cout << queue->pop() << "\n";
 	cout << queue->pop() << "\n";
 	cout << queue->pop() << "\n";
-	cout << queue->pop() << "\n";
+	cout << queue->pop() << "\n";*/
+	
 }

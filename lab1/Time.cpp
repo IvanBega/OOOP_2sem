@@ -1,5 +1,8 @@
 #include "Time.h"
-
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
 int Time::getSecond()
 {
 	return _sec;
@@ -19,18 +22,24 @@ void Time::setSecond(int second)
 {
 	if (second >= 0 && second <= 59)
 		_sec = second;
+	else
+		_sec = 0;
 }
 
 void Time::setMinute(int minute)
 {
 	if (minute >= 0 && minute <= 59)
 		_min = minute;
+	else
+		_min = 0;
 }
 
 void Time::setHour(int hour)
 {
 	if (hour >= 0 && hour <= 23)
 		_hour = hour;
+	else
+		_hour = 0;
 }
 
 Time::Time() : _sec(0), _min(0), _hour(0)
@@ -51,18 +60,32 @@ Time::Time(int hour, int minute, int second)
 
 void Time::addTime(int hour, int minute, int second)
 {
-	int this_time = _hour * 3600 + _min * 60 + _sec;
-	int that_time = hour * 3600 + minute * 60 + second;
+	int this_time = _hour * secPerHour + _min * secPerMinute + _sec;
+	int that_time = hour * secPerHour + minute * secPerMinute + second;
 	int result = (this_time + that_time) % secPerDay;
 
-	_hour = result / 24;
-	result = result - 3600 * _hour;
-	_min = result / 60;
-	result = result - 60 * _min;
+	_hour = result / secPerHour;
+	result = result - secPerHour * _hour;
+	_min = result / secPerMinute;
+	result = result - secPerMinute * _min;
 	_sec = result;
 }
 
 void Time::addTime(Time& time)
 {
 	addTime(time.getHour(), time.getMinute(), time.getSecond());
+}
+
+std::ostream& operator<<(std::ostream& os, const Time& time)
+{
+	using namespace std;
+	os << setfill('0') << setw(2) << time._hour << ":" << setfill('0') << setw(2) << time._min << ":" << setfill('0') << setw(2) << time._sec;
+	return os;
+}
+
+bool operator==(const Time& time1, const Time& time2)
+{
+	return (time1._hour == time2._hour &&
+		time1._min == time2._min &&
+		time1._sec == time2._sec);
 }

@@ -3,7 +3,6 @@
 #include "VectorQueue.h"
 #include "BSTQueue.h"
 #include "BinaryHeapQueue.h"
-#include "Date.h"
 #include "UserInterface.h"
 #include "Time.h"
 int main()
@@ -61,4 +60,5 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
+	Time time(15, 2, 0);
 }

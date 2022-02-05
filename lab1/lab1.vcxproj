@@ -141,7 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinaryHeapQueue.cpp" />
-    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="LinkedListQueue.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -151,6 +151,7 @@
     <ClInclude Include="BinaryHeapQueue.h" />
     <ClInclude Include="BSTQueue.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="DateTime.h" />
     <ClInclude Include="LinkedListQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Time.h" />

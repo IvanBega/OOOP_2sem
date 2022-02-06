@@ -3,8 +3,8 @@
 #include "VectorQueue.h"
 #include "BSTQueue.h"
 #include "BinaryHeapQueue.h"
-#include "UserInterface.h"
 #include "Time.h"
+#include "Date.h"
 int main()
 {
 	using namespace std;
@@ -60,7 +60,6 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	Time time3(3, 15, 20);
-	time3.addSeconds(-15000);
-	std::cout << time3;
+	Date date(7, 4, 3);
+	std::cout << date.daysFromDate();
 }

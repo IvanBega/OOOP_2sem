@@ -60,5 +60,7 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	Time time(15, 2, 0);
+	Time time3(3, 15, 20);
+	time3.addSeconds(-15000);
+	std::cout << time3;
 }

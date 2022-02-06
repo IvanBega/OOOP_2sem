@@ -60,20 +60,28 @@ Time::Time(int hour, int minute, int second)
 
 void Time::addTime(int hour, int minute, int second)
 {
-	int this_time = _hour * secPerHour + _min * secPerMinute + _sec;
 	int that_time = hour * secPerHour + minute * secPerMinute + second;
-	int result = (this_time + that_time) % secPerDay;
-
-	_hour = result / secPerHour;
-	result = result - secPerHour * _hour;
-	_min = result / secPerMinute;
-	result = result - secPerMinute * _min;
-	_sec = result;
+	addSeconds(that_time);
 }
 
 void Time::addTime(Time& time)
 {
 	addTime(time.getHour(), time.getMinute(), time.getSecond());
+}
+
+void Time::addSeconds(int seconds)
+{
+	int this_seconds = _hour * secPerHour + _min * secPerMinute + _sec;
+	int result = (this_seconds + seconds) % secPerDay;
+	if (result < 0)
+	{
+		result = secPerDay + result;
+	}
+	_hour = result / secPerHour;
+	result = result - secPerHour * _hour;
+	_min = result / secPerMinute;
+	result = result - secPerMinute * _min;
+	_sec = result;
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time)

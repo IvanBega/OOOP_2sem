@@ -15,6 +15,7 @@ public:
 	Time(int hour, int minute, int second);
 	void addTime(int hour, int minute, int second);
 	void addTime(Time& time);
+	void addSeconds(int seconds);
 	friend std::ostream& operator<<(std::ostream& os, const Time& time);
 	friend bool operator==(const Time& time1, const Time& time2);
 private:

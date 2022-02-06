@@ -15,6 +15,27 @@ namespace lab1Tests
 			Assert::AreEqual(time.getMinute(), 0);
 			Assert::AreEqual(time.getSecond(), 0);
 		}
+		TEST_METHOD(AddSecondsTest)
+		{
+			bool actual;
+			Time time1(15, 40, 23);
+			time1.addSeconds(6439);
+			Time expected1(17, 27, 42);
+			actual = time1 == expected1;
+			Assert::IsTrue(actual);
+
+			Time time2(19, 3, 5);
+			time2.addSeconds(160475);
+			Time expected2(15, 37, 40);
+			actual = time2 == expected2;
+			Assert::IsTrue(actual);
+
+			Time time3(3, 15, 20);
+			time3.addSeconds(-15000);
+			Time expected3(23, 5, 20);
+			actual = time3 == expected3;
+			Assert::IsTrue(actual);
+		}
 		TEST_METHOD(ParameterConstrustorTest)
 		{
 			Time time(1, 2, 3);
@@ -48,6 +69,10 @@ namespace lab1Tests
 			Time time2(8, 7, 6);
 			bool actual = time1 == time2;
 			Assert::IsTrue(actual);
+
+			time2.setHour(3);
+			actual = time1 == time2;
+			Assert::IsFalse(actual);
 		}
 		TEST_METHOD(OutputOperatorTest)
 		{

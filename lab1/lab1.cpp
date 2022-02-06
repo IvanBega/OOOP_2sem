@@ -60,6 +60,7 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	Date date(7, 4, 3);
-	std::cout << date.daysFromDate();
+	Date date(1, 4, 28);
+	date.addDays(12974);
+	std::cout << date;
 }

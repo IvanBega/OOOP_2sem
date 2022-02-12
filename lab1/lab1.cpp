@@ -5,6 +5,7 @@
 #include "BinaryHeapQueue.h"
 #include "Time.h"
 #include "Date.h"
+#include "DateTime.h"
 int main()
 {
 	using namespace std;
@@ -60,7 +61,7 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	Date date(1, 4, 28);
-	date.addDays(12974);
-	std::cout << date;
+	DateTime dateTime(1,2,3);
+	dateTime.addTime(1,0,0);
+	std::cout << dateTime.getMonth();
 }

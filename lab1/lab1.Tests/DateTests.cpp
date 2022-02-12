@@ -36,6 +36,17 @@ namespace lab1Tests
 			date2.addDays(12974);
 
 			Assert::IsTrue(date2 == expected2);
+
+			Date date3(1, 4, 28);
+			Date expected3(0, 4, 28);
+			date3.addDays(-365);
+
+			Assert::IsTrue(date3 == expected3);
+
+			Date date4(5, 6, 13);
+			Date expected4(1, 0, 13);
+			date4.addDays(-1642);
+			Assert::IsTrue(date4 == expected4);
 		}
 		TEST_METHOD(EqualityOperatorTest)
 		{

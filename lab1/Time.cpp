@@ -72,11 +72,9 @@ void Time::addTime(Time& time)
 void Time::addSeconds(int seconds)
 {
 	int this_seconds = _hour * secPerHour + _min * secPerMinute + _sec;
-	int result = (this_seconds + seconds) % secPerDay;
-	if (result < 0)
-	{
-		result = secPerDay + result;
-	}
+	int result = this_seconds + seconds;
+	if (result < 0 || result >= secPerDay)
+		throw std::out_of_range("");
 	_hour = result / secPerHour;
 	result = result - secPerHour * _hour;
 	_min = result / secPerMinute;

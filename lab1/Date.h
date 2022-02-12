@@ -19,7 +19,7 @@ public:
 	void setDay(int day);
 	void setMonth(int month);
 	int setYear(int year);
-private:
+protected:
 	const static int days_in_month[12];
 	const static int total_days_in_month[12];
 	static const int daysPearYear = 365;

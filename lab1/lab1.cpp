@@ -61,7 +61,8 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
+	Time t(1, 2, 3);
 	DateTime dateTime(1,2,3);
 	dateTime.addTime(1,0,0);
-	std::cout << dateTime.getMonth();
+	std::cout << t;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Date.h"
 #include "Time.h"
 class DateTime : public Date, public Time
@@ -19,4 +20,6 @@ public:
 	int getDay();
 	void addTime(Time& time);
 	void addTime(int hour, int minute, int second);
+	std::string toString() const;
+	friend std::ostream& operator<<(std::ostream& os, const DateTime& date);
 };

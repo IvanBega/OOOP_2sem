@@ -18,6 +18,7 @@ public:
 	void addSeconds(int seconds);
 	friend std::ostream& operator<<(std::ostream& os, const Time& time);
 	friend bool operator==(const Time& time1, const Time& time2);
+	std::string toString() const;
 protected:
 	int _sec;
 	int _min;

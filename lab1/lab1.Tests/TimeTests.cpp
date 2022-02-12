@@ -29,12 +29,6 @@ namespace lab1Tests
 			Time expected2(15, 37, 40);
 			actual = time2 == expected2;
 			Assert::IsTrue(actual);
-
-			Time time3(3, 15, 20);
-			time3.addSeconds(-15000);
-			Time expected3(23, 5, 20);
-			actual = time3 == expected3;
-			Assert::IsTrue(actual);
 		}
 		TEST_METHOD(ParameterConstrustorTest)
 		{
@@ -80,7 +74,7 @@ namespace lab1Tests
 			* source: https://stackoverflow.com/questions/5419356/redirect-stdout-stderr-to-a-string
 			*/
 			Time time1(15, 42, 30);
-			std::string expected = "15:42:30";
+			std::string expected = "15:42:30\n";
 			std::stringstream buffer;
 			std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
 			std::cout << time1;

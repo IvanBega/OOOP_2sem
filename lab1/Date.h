@@ -19,6 +19,7 @@ public:
 	void setDay(int day);
 	void setMonth(int month);
 	int setYear(int year);
+	std::string toString() const;
 protected:
 	const static int days_in_month[12];
 	const static int total_days_in_month[12];

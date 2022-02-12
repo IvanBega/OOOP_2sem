@@ -100,6 +100,17 @@ int Date::setYear(int year)
 		throw std::out_of_range("");
 	_year = year;
 }
+std::string Date::toString() const
+{
+	std::string s;
+	s.append(std::to_string(_year));
+	s.append(" years, ");
+	s.append(std::to_string(_month));
+	s.append(" months, "); 
+	s.append(std::to_string(_day));
+	s.append("days");
+	return s;
+}
 Date::Date(int year, int month, int day)
 {
 	if (day < 0 || month < 0 || month > 11 || year < 0)
@@ -119,7 +130,8 @@ Date::Date(int year, int month, int day)
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
 	using namespace std;
-	os << date._year << " years, " << date._month << " months, " << date._day << " days\n";
+	//os << date._year << " years, " << date._month << " months, " << date._day << " days\n";
+	os << date.toString() << "\n";
 	return os;
 }
 bool operator==(const Date& date1, const Date& date2)

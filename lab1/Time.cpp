@@ -82,10 +82,30 @@ void Time::addSeconds(int seconds)
 	_sec = result;
 }
 
+std::string Time::toString() const
+{
+	std::string s;
+	if (_hour < 10)
+		s.append("0");
+	
+	s.append(std::to_string(_hour));
+	s.append(":");
+	if (_min < 10)
+		s.append("0");
+	
+	s.append(std::to_string(_min));
+	s.append(":");
+	if (_sec < 10)
+		s.append("0");
+	s.append(std::to_string(_sec));
+	return s;
+}
+
 std::ostream& operator<<(std::ostream& os, const Time& time)
 {
 	using namespace std;
-	os << setfill('0') << setw(2) << time._hour << ":" << setfill('0') << setw(2) << time._min << ":" << setfill('0') << setw(2) << time._sec;
+	os << time.toString() << "\n";
+	//os << setfill('0') << setw(2) << time._hour << ":" << setfill('0') << setw(2) << time._min << ":" << setfill('0') << setw(2) << time._sec;
 	return os;
 }
 

@@ -61,8 +61,8 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	Time t(1, 2, 3);
-	DateTime dateTime(1,2,3);
-	dateTime.addTime(1,0,0);
-	std::cout << t;
+	DateTime t(2021, 2, 3, 15, 42, 40);
+	std::cout << t << "\n";
+	t.addDays(-366);
+	std::cout << t << "\n";
 }

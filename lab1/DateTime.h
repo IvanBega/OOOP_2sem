@@ -20,6 +20,8 @@ public:
 	int getDay();
 	void addTime(Time& time);
 	void addTime(int hour, int minute, int second);
+	void addSeconds(int seconds);
 	std::string toString() const;
+	std::string toStringTime() const;
 	friend std::ostream& operator<<(std::ostream& os, const DateTime& date);
 };

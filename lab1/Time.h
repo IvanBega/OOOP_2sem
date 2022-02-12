@@ -10,6 +10,7 @@ public:
 	void setSecond(int second);
 	void setMinute(int minute);
 	void setHour(int hour);
+	static int getSeconds(Time& time);
 	Time();
 	~Time();
 	Time(int hour, int minute, int second);

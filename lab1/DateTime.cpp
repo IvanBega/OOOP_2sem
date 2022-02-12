@@ -36,7 +36,14 @@ void DateTime::addTime(int hour, int minute, int second)
 	int days_to_add = result / secPerDay;
 	if (days_to_add != 0)
 		addDays(days_to_add);
-	addSeconds(result % secPerDay);
+	addSeconds(that_time);
+}
+
+void DateTime::addSeconds(int seconds)
+{
+	int days_to_add = seconds / secPerDay;
+	addDays(days_to_add);
+	Time::addSeconds(seconds);
 }
 
 std::string DateTime::toString() const
@@ -52,7 +59,15 @@ std::string DateTime::toString() const
 	s.append(std::to_string(_month+1));
 	s.append(".");
 	s.append(std::to_string(_year + 1));
+
+	s.append(" ");
+	s.append(toStringTime());
 	return s;
+}
+
+std::string DateTime::toStringTime() const
+{
+	return Time::toString();
 }
 
 std::ostream& operator<<(std::ostream& os, const DateTime& dateTime)

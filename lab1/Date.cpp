@@ -61,6 +61,8 @@ Date Date::setDateFromDays(int _days)
 }
 void Date::addDays(int days)
 {
+	if (days == 0)
+		return;
 	int this_days = Date::getDaysFromDate(this->_year, this->_month, this->_day);
 	if (this_days + days < 0)
 		throw std::out_of_range("");
@@ -131,7 +133,7 @@ std::ostream& operator<<(std::ostream& os, const Date& date)
 {
 	using namespace std;
 	//os << date._year << " years, " << date._month << " months, " << date._day << " days\n";
-	os << date.toString() << "\n";
+	os << date.toString();
 	return os;
 }
 bool operator==(const Date& date1, const Date& date2)

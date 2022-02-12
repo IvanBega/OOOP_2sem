@@ -42,6 +42,11 @@ void Time::setHour(int hour)
 		_hour = 0;
 }
 
+int Time::getSeconds(Time& time)
+{
+	return time.getSecond() + time.getMinute() * secPerMinute + time.getHour() * secPerHour;
+}
+
 Time::Time() : _sec(0), _min(0), _hour(0)
 {
 
@@ -72,9 +77,11 @@ void Time::addTime(Time& time)
 void Time::addSeconds(int seconds)
 {
 	int this_seconds = _hour * secPerHour + _min * secPerMinute + _sec;
-	int result = this_seconds + seconds;
-	if (result < 0 || result >= secPerDay)
-		throw std::out_of_range("");
+	int result = (this_seconds + seconds) % secPerDay;
+	if (result < 0)
+	{
+		result = secPerDay + result;
+	}
 	_hour = result / secPerHour;
 	result = result - secPerHour * _hour;
 	_min = result / secPerMinute;
@@ -104,7 +111,7 @@ std::string Time::toString() const
 std::ostream& operator<<(std::ostream& os, const Time& time)
 {
 	using namespace std;
-	os << time.toString() << "\n";
+	os << time.toString();
 	//os << setfill('0') << setw(2) << time._hour << ":" << setfill('0') << setw(2) << time._min << ":" << setfill('0') << setw(2) << time._sec;
 	return os;
 }

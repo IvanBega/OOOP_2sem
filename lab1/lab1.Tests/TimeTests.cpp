@@ -74,7 +74,7 @@ namespace lab1Tests
 			* source: https://stackoverflow.com/questions/5419356/redirect-stdout-stderr-to-a-string
 			*/
 			Time time1(15, 42, 30);
-			std::string expected = "15:42:30\n";
+			std::string expected = "15:42:30";
 			std::stringstream buffer;
 			std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
 			std::cout << time1;

@@ -1,7 +1,9 @@
 //#pragma once
 //#include <iostream>
 //#include <chrono>
-////#include "DateTime.h"
+//#include "DateTime.h"
+//#include "Time.h"
+//#include "Date.h"
 //class UserInterface
 //{
 //public:
@@ -9,11 +11,13 @@
 //	static void Test(int count);
 //	template<typename T>
 //	static void QueueDemonstration(T q, int count);
-//	//static void AddDateDemonstration(int count);
-//	//static void SubtractDateDemonstration(int count);
-//	//static void DateDiffDemonstration(int count);
+//	static void AddDateDemonstration(int count);
+//	static void SubtractDateDemonstration(int count);
+//	static void DateDiffDemonstration(int count);
 //	static void ConsoleQueueInterface();
-//	//static void ConsoleDateInterface();
+//	static void ConsoleDateInterface();
+//private:
+//	int randInt(int min, int max);
 //};
 //template<typename T>
 //void UserInterface::Test(int count)

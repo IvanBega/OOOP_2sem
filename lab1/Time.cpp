@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "Utils.h"
 using namespace std;
 int Time::getSecond()
 {
@@ -106,6 +107,13 @@ std::string Time::toString() const
 		s.append("0");
 	s.append(std::to_string(_sec));
 	return s;
+}
+
+void Time::randomFill()
+{
+	_hour = Utils::randInt(0, 23);
+	_min = Utils::randInt(0, 59);
+	_sec = Utils::randInt(0, 59);
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time)

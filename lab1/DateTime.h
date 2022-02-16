@@ -25,6 +25,8 @@ public:
 	void addDate(Date& date);
 	void subtractDate(Date& date);
 	void addSeconds(int seconds);
+	void randomFill();
+	static Date dateBetween(DateTime& dt1, DateTime& dt2);
 	std::string toString() const;
 	std::string toStringTime() const;
 	friend std::ostream& operator<<(std::ostream& os, const DateTime& date);

@@ -61,9 +61,10 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	DateTime dt2(2022, 2, 16, 14, 46, 8);
-	Time t(15, 0, 0);
-	std::cout << dt2 << "\n";
-	dt2.addTime(-15, 0, 0);
-	std::cout << dt2;
+	DateTime d;
+	for (int i = 0; i < 100; i++)
+	{
+		d.randomFill();
+		std::cout << d << "\n";
+	}
 }

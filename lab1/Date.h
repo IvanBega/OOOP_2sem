@@ -20,6 +20,7 @@ public:
 	void setMonth(int month);
 	int setYear(int year);
 	std::string toString() const;
+	void randomFill(int minYear, int maxYear);
 protected:
 	const static int days_in_month[12];
 	const static int total_days_in_month[12];

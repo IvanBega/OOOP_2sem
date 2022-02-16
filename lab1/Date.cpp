@@ -1,4 +1,5 @@
 #include "Date.h"
+#include "Utils.h"
 #include <stdexcept>
 #include <iostream>
 #include <iomanip>
@@ -112,6 +113,12 @@ std::string Date::toString() const
 	s.append(std::to_string(_day));
 	s.append("days");
 	return s;
+}
+void Date::randomFill(int minYear = 0, int maxYear = 10)
+{
+	_year = Utils::randInt(minYear, maxYear);
+	_month = Utils::randInt(0, 11);
+	_day = Utils::randInt(0, getDaysInMonth(_month, _year) - 1);
 }
 Date::Date(int year, int month, int day)
 {

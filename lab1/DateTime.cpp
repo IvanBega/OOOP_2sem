@@ -1,5 +1,5 @@
 #include "DateTime.h"
-
+#include "Utils.h"
 DateTime::DateTime() : Date(1999,0,0), Time(0,0,0)
 {
 }
@@ -89,6 +89,20 @@ void DateTime::addSeconds(int seconds)
 	int days_to_add = seconds / secPerDay;
 	addDays(days_to_add);
 	Time::addSeconds(seconds);
+}
+
+void DateTime::randomFill()
+{
+	Date::randomFill(2016, 2022);
+	Time::randomFill();
+}
+
+Date DateTime::dateBetween(DateTime& dt1, DateTime& dt2)
+{
+	int days1 = Date::getDaysFromDate(dt1);
+	int days2 = Date::getDaysFromDate(dt2);
+	int diff = abs(days1 - days2);
+	return Date::setDateFromDays(diff);
 }
 
 std::string DateTime::toString() const

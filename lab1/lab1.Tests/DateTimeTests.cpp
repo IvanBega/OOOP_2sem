@@ -69,11 +69,11 @@ namespace lab1Tests
 
 			Assert::IsTrue(actual);
 		}
-
 		TEST_METHOD(SubtractTimeTest)
 		{
 			DateTime dt(2022, 2, 16, 14, 46, 8);
 			Time time(15, 0, 0);
+			dt.subtractTime(time);
 		}
 		TEST_METHOD(EqualityOperatorTest)
 		{
@@ -124,6 +124,15 @@ namespace lab1Tests
 			dt1.addDate(d1);
 			bool actual = dt1 == expected1;
 			Assert::IsTrue(actual);
+		}
+		TEST_METHOD(DateDiffTest)
+		{
+			DateTime dt1(2022, 2, 16, 14, 46, 8);
+			DateTime dt2(2023, 2, 17, 14, 46, 8);
+			Date actual = DateTime::dateBetween(dt1, dt2);
+			Date expected(1, 0, 1);
+			bool result = actual == expected;
+			Assert::IsTrue(actual == expected);
 		}
 	};
 }

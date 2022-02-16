@@ -52,10 +52,36 @@ void DateTime::addTime(int hour, int minute, int second)
 	int that_time = secPerHour * hour + secPerMinute * minute + second;
 	int this_time = secPerHour * _hour + secPerMinute * _min + _sec;
 	int result = this_time + that_time;
-	int days_to_add = result / secPerDay;
+	int days_to_add;
+	if (result < 0)
+	{
+		days_to_add = -1 + result / secPerDay;
+	}
+	else
+		days_to_add = result / secPerDay;
 	if (days_to_add != 0)
 		addDays(days_to_add);
 	addSeconds(that_time);
+}
+
+void DateTime::subtractTime(Time& time)
+{
+	addTime(-time.getHour(), -time.getMinute(), -time.getSecond());
+}
+
+void DateTime::addDays(int day)
+{
+	Date::addDays(day);
+}
+
+void DateTime::addDate(Date& date)
+{
+	addDays(Date::getDaysFromDate(date));
+}
+
+void DateTime::subtractDate(Date& date)
+{
+	addDays(-Date::getDaysFromDate(date));
 }
 
 void DateTime::addSeconds(int seconds)

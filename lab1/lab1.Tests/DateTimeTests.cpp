@@ -62,15 +62,18 @@ namespace lab1Tests
 		TEST_METHOD(AddTimeTest)
 		{
 			DateTime dt(2022, 2, 13, 12, 49, 2);
+			DateTime expected(2022, 2, 14, 0, 0, 1);
 			Time timeToAdd(11, 10, 59);
 			dt.addTime(timeToAdd);
+			bool actual = dt == expected;
 
-			Assert::AreEqual(dt.getYear(), 2022);
-			Assert::AreEqual(dt.getMonth(), 2);
-			Assert::AreEqual(dt.getDay(), 14);
-			Assert::AreEqual(dt.getHour(), 0);
-			Assert::AreEqual(dt.getMinute(), 0);
-			Assert::AreEqual(dt.getSecond(), 1);
+			Assert::IsTrue(actual);
+		}
+
+		TEST_METHOD(SubtractTimeTest)
+		{
+			DateTime dt(2022, 2, 16, 14, 46, 8);
+			Time time(15, 0, 0);
 		}
 		TEST_METHOD(EqualityOperatorTest)
 		{
@@ -96,6 +99,31 @@ namespace lab1Tests
 
 			std::string actual = buffer.str();
 			Assert::AreEqual(expected, actual);
+		}
+		TEST_METHOD(AddDaysTest)
+		{
+			DateTime dt1(2022, 2, 16, 14, 15, 34);
+			DateTime expected1(2023, 2, 16, 14, 15, 34);
+			int days1 = 365;
+			dt1.addDays(days1);
+			bool actual = dt1 == expected1;
+			Assert::IsTrue(actual);
+
+			DateTime dt2(2020, 2, 16, 14, 15, 34);
+			DateTime expected2(2019, 2, 16, 14, 15, 34);
+			int days2 = -365;
+			dt2.addDays(days2);
+			actual = dt2 == expected2;
+			Assert::IsTrue(actual);
+		}
+		TEST_METHOD(AddDateTest)
+		{
+			DateTime dt1(2022, 2, 16, 14, 26, 8);
+			DateTime expected1(2023, 2, 16, 14, 26, 8);
+			Date d1(1, 0, 0);
+			dt1.addDate(d1);
+			bool actual = dt1 == expected1;
+			Assert::IsTrue(actual);
 		}
 	};
 }

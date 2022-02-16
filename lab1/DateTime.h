@@ -20,6 +20,10 @@ public:
 	void setDay(int day);
 	void addTime(Time& time);
 	void addTime(int hour, int minute, int second);
+	void subtractTime(Time& time);
+	void addDays(int day);
+	void addDate(Date& date);
+	void subtractDate(Date& date);
 	void addSeconds(int seconds);
 	std::string toString() const;
 	std::string toStringTime() const;

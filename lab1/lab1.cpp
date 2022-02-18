@@ -6,6 +6,7 @@
 #include "Time.h"
 #include "Date.h"
 #include "DateTime.h"
+#include "UserInterface.h"
 int main()
 {
 	using namespace std;
@@ -61,10 +62,7 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	DateTime d;
-	for (int i = 0; i < 100; i++)
-	{
-		d.randomFill();
-		std::cout << d << "\n";
-	}
+	UserInterface::Test<LinkedListQueue<DateTime>>(10000);
+	UserInterface::Test<BSTQueue<DateTime>>(10000);
+	UserInterface::Test<VectorQueue<DateTime>>(10000);
 }

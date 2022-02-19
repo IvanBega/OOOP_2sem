@@ -62,7 +62,4 @@ int main()
 	//VectorQueue<int>* q = new VectorQueue<int>;
 	////q->push(5, 5);
 	//std::cout << q->pop();
-	UserInterface::Test<LinkedListQueue<DateTime>>(10000);
-	UserInterface::Test<BSTQueue<DateTime>>(10000);
-	UserInterface::Test<VectorQueue<DateTime>>(10000);
 }

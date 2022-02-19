@@ -116,6 +116,17 @@ void Time::randomFill()
 	_sec = Utils::randInt(0, 59);
 }
 
+bool Time::isCorrect(int hour, int minute, int second)
+{
+	if (hour < 0 || hour > 23)
+		return false;
+	if (minute < 0 || minute > 59)
+		return false;
+	if (second < 0 || second > 59)
+		return false;
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& os, const Time& time)
 {
 	using namespace std;

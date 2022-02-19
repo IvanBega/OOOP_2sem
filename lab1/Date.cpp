@@ -120,16 +120,21 @@ void Date::randomFill(int minYear = 0, int maxYear = 10)
 	_month = Utils::randInt(0, 11);
 	_day = Utils::randInt(0, getDaysInMonth(_month, _year) - 1);
 }
+bool Date::isCorrect(int year, int month, int day)
+{
+	if (year < 0 || year > 9999)
+		return false;
+	if (month < 0 || month > 11)
+		return false;
+	if (day < 0 || day >= getDaysInMonth(month, year))
+		return false;
+	return true;
+}
 Date::Date(int year, int month, int day)
 {
-	if (day < 0 || month < 0 || month > 11 || year < 0)
-		throw std::out_of_range("");
-	if (day >= days_in_month[month])
+	if (!isCorrect(year, month, day))
 	{
-		if (year % 4 != 3)
-			throw std::out_of_range("");
-		if (year % 4 == 3 && month == 1 && day >= 29)
-			throw std::out_of_range("");
+		throw std::invalid_argument("Invalid argument for Date");
 	}
 
 	_day = day;

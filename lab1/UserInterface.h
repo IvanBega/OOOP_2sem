@@ -5,46 +5,20 @@
 #include "Time.h"
 #include "Date.h"
 #include "Utils.h"
+#include "BinaryHeapQueue.h"
+#include "BSTQueue.h"
+#include "LinkedListQueue.h"
+#include "VectorQueue.h"
 class UserInterface
 {
+private:
+	DateTime* current = nullptr;
+	Queue<DateTime>* queue = nullptr;
+	void Display();
+	void SelectQueue();
+	void Menu();
+	void CreateDateTime();
+	void FillDateTimeFromConsole();
 public:
-	template<typename T>
-	static void Test(int count);
-	template<typename T>
-	static void QueueDemonstration(T q, int count);
-	//static void AddDateDemonstration(int count);
-	//static void SubtractDateDemonstration(int count);
-	//static void DateDiffDemonstration(int count);
-	//static void ConsoleQueueInterface();
-	//static void ConsoleDateInterface();
+	UserInterface();
 };
-template<typename T>
-void UserInterface::Test(int count)
-{
-	T q;
-	auto start = std::chrono::high_resolution_clock::now();
-	UserInterface::QueueDemonstration(q, count);
-	auto stop = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-	std::cout << "\nTook " << duration.count() << " microseconds";
-}
-template<typename T>
-void UserInterface::QueueDemonstration(T q, int count)
-{
-	std::cout << "Pushing " << count << " elements:\n";
-	for (int i = 0; i < count; i++)
-	{
-		// pushing
-		DateTime temp;
-		temp.randomFill();
-		int priority = Utils::randInt(0, 10);
-		q.push(temp, priority);
-	}
-	// popping
-	DateTime temp;
-	std::cout << "Popping " << count << " elements:\n";
-	for (int i = 0; i < count; i++)
-	{
-		temp = q.pop();
-	}
-}

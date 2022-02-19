@@ -105,6 +105,21 @@ Date DateTime::dateBetween(DateTime& dt1, DateTime& dt2)
 	return Date::setDateFromDays(diff);
 }
 
+bool DateTime::isDateCorrect(int year, int month, int day)
+{
+	return Date::isCorrect(year - 1, month - 1, day - 1);
+}
+
+bool DateTime::isTimeCorrect(int hour, int minute, int second)
+{
+	return Time::isCorrect(hour, minute, second);
+}
+
+bool DateTime::isDateTimeCorrect(int year, int month, int day, int hour, int minute, int second)
+{
+	return isDateCorrect(year, month, day) && isTimeCorrect(hour, minute, second);
+}
+
 std::string DateTime::toString() const
 {
 	std::string s;

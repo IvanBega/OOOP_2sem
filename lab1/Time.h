@@ -21,6 +21,7 @@ public:
 	friend bool operator==(const Time& time1, const Time& time2);
 	std::string toString() const;
 	void randomFill();
+	static bool isCorrect(int hour, int minute, int second);
 protected:
 	int _sec;
 	int _min;

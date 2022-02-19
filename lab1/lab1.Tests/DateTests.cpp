@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include <stdexcept>
 #include "../Date.cpp"
+#include "../Utils.cpp"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace lab1Tests

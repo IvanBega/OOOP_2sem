@@ -15,8 +15,8 @@ private:
 	struct Node
 	{
 		T data;
-		Node* next;
-		int priority;
+		Node* next = nullptr;
+		int priority = 0;
 	};
 	Node* head = nullptr;
 };

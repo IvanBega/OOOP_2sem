@@ -21,6 +21,7 @@ public:
 	int setYear(int year);
 	std::string toString() const;
 	void randomFill(int minYear, int maxYear);
+	static bool isCorrect(int year, int month, int day);
 protected:
 	const static int days_in_month[12];
 	const static int total_days_in_month[12];

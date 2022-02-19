@@ -45,7 +45,12 @@ void Time::setHour(int hour)
 
 int Time::getSeconds(Time& time)
 {
-	return time.getSecond() + time.getMinute() * secPerMinute + time.getHour() * secPerHour;
+	return getSeconds(time.getHour(), time.getMinute(), time.getSecond());
+}
+
+int Time::getSeconds(int hour, int minute, int second)
+{
+	return second + minute * secPerMinute + hour * secPerHour;
 }
 
 Time::Time() : _sec(0), _min(0), _hour(0)
@@ -66,7 +71,7 @@ Time::Time(int hour, int minute, int second)
 
 void Time::addTime(int hour, int minute, int second)
 {
-	int that_time = hour * secPerHour + minute * secPerMinute + second;
+	int that_time = Time::getSeconds(hour, minute, second);
 	addSeconds(that_time);
 }
 
@@ -77,7 +82,7 @@ void Time::addTime(Time& time)
 
 void Time::addSeconds(int seconds)
 {
-	int this_seconds = _hour * secPerHour + _min * secPerMinute + _sec;
+	int this_seconds = Time::getSeconds(_hour, _min, _sec);
 	int result = (this_seconds + seconds) % secPerDay;
 	if (result < 0)
 	{

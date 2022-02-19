@@ -9,6 +9,13 @@ public:
 	void push(T data, int priority);
 	T peek();
 	T pop();
+	bool empty();
+	~BinaryHeapQueue()
+	{
+		for (auto a : arr)
+			delete a;
+		arr.clear();
+	}
 private:
 	struct elem
 	{
@@ -39,14 +46,14 @@ void BinaryHeapQueue<T>::push(T data, int priority)
 template<class T>
 T BinaryHeapQueue<T>::peek()
 {
-	if (!arr.empty())
+	if (!empty())
 		return arr[0].data;
 	throw std::runtime_error("Queue is empty");
 }
 template<class T>
 T BinaryHeapQueue<T>::pop()
 {
-	if (!arr.empty())
+	if (!empty())
 	{
 		T data = arr[0].data;
 		std::swap(arr[0], arr[size]);
@@ -57,6 +64,11 @@ T BinaryHeapQueue<T>::pop()
 		return data;
 	}
 	throw std::runtime_error("Queue is empty");
+}
+template<class T>
+inline bool BinaryHeapQueue<T>::empty()
+{
+	return size == -1;
 }
 template<class T>
 int BinaryHeapQueue<T>::parentIndex(int i)

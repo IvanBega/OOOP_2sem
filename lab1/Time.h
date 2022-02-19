@@ -11,6 +11,7 @@ public:
 	void setMinute(int minute);
 	void setHour(int hour);
 	static int getSeconds(Time& time);
+	static int getSeconds(int hour, int minute, int second);
 	Time();
 	~Time();
 	Time(int hour, int minute, int second);

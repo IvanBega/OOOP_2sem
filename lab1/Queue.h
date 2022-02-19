@@ -6,4 +6,5 @@ public:
 	virtual void push(T data, int priority) = 0;
 	virtual T peek() = 0;
 	virtual T pop() = 0;
+	virtual bool empty() = 0;
 };

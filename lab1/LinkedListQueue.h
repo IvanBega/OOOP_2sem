@@ -7,10 +7,8 @@ public:
 	void push(T data, int priority);
 	T pop();
 	T peek();
-	~LinkedListQueue()
-	{
-			
-	}
+	bool empty();
+	~LinkedListQueue();
 private:
 	struct Node
 	{
@@ -53,7 +51,7 @@ void LinkedListQueue<T>::push(T data, int priority)
 template<class T>
 T LinkedListQueue<T>::pop()
 {
-	if (head != nullptr)
+	if (!empty())
 	{
 		Node* temp = head;
 		T data = head->data;
@@ -66,7 +64,25 @@ T LinkedListQueue<T>::pop()
 template<class T>
 T LinkedListQueue<T>::peek()
 {
-	if (head != nullptr)
+	if (!empty())
 		return head->data;
 	throw std::runtime_error("Queue is empty");
+}
+
+template<class T>
+inline bool LinkedListQueue<T>::empty()
+{
+	return head == nullptr;
+}
+
+template<class T>
+inline LinkedListQueue<T>::~LinkedListQueue()
+{
+	Node* temp = head;
+	while (head != nullptr)
+	{
+		temp = head;
+		head = head->next;
+		delete temp;
+	}
 }

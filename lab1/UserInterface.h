@@ -32,4 +32,5 @@ private:
 	void PopDateTimeToCurrent();
 public:
 	UserInterface();
+	~UserInterface();
 };

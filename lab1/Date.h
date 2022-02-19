@@ -18,7 +18,7 @@ public:
 	int getYear();
 	void setDay(int day);
 	void setMonth(int month);
-	int setYear(int year);
+	void setYear(int year);
 	std::string toString() const;
 	void randomFill(int minYear, int maxYear);
 	static bool isCorrect(int year, int month, int day);

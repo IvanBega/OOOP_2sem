@@ -1,5 +1,11 @@
 #include "UserInterface.h"
 
+UserInterface::~UserInterface()
+{
+	delete queue;
+	delete current;
+}
+
 void UserInterface::Display()
 {
 	SelectQueue();
@@ -31,6 +37,8 @@ void UserInterface::SelectQueue()
 		break;
 	case 4:
 		queue = new BinaryHeapQueue<DateTime*>;
+		break;
+	case 5:
 		break;
 	}
 }
@@ -220,12 +228,22 @@ void UserInterface::PushCurrentDateTime()
 
 void UserInterface::PeekDateTimeToCurrent()
 {
+	if (queue->empty())
+	{
+		std::cout << "Unable to pop, queue is empty\n";
+		return;
+	}
 	current = queue->peek();
 	std::cout << "Peeked DateTime to current: " << *current << "\n";
 }
 
 void UserInterface::PopDateTimeToCurrent()
 {
+	if (queue->empty())
+	{
+		std::cout << "Unable to pop, queue is empty\n";
+		return;
+	}
 	current = queue->pop();
 	std::cout << "Popped DateTime to current: " << *current << "\n";
 }

@@ -88,19 +88,19 @@ int Date::getYear()
 void Date::setDay(int day)
 {
 	if (day < 0 || day >= Date::getDaysInMonth(_month, _year))
-		throw std::out_of_range("");
+		throw std::invalid_argument("Day is out of range");
 	_day = day;
 }
 void Date::setMonth(int month)
 {
 	if (month < 0 || month > 11)
-		throw std::out_of_range("");
+		throw std::invalid_argument("Month is out of range");
 	_month = month;
 }
-int Date::setYear(int year)
+void Date::setYear(int year)
 {
-	if (year < 0)
-		throw std::out_of_range("");
+	if (year < 0 || year > 2999)
+		throw std::invalid_argument("Year is out of range");
 	_year = year;
 }
 std::string Date::toString() const
@@ -144,7 +144,6 @@ Date::Date(int year, int month, int day)
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
 	using namespace std;
-	//os << date._year << " years, " << date._month << " months, " << date._day << " days\n";
 	os << date.toString();
 	return os;
 }

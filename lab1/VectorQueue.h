@@ -33,7 +33,7 @@ public:
 	}
 	T pop()
 	{
-		if (!arr.empty())
+		if (!empty())
 		{
 			elem temp = arr.back();
 			arr.pop_back();
@@ -43,17 +43,15 @@ public:
 	}
 	T peek()
 	{
-		if (!arr.empty())
+		if (!empty())
 		{
 			elem last = arr.back();
 			return last.data;
 		}
 		throw std::runtime_error("Queue is empty");
 	}
-	~VectorQueue()
-	{
-			
-	}
+	bool empty();
+	~VectorQueue();
 private:
 	struct elem
 	{
@@ -66,3 +64,17 @@ private:
 	};
 	std::vector<elem> arr;
 };
+
+template<class T>
+inline bool VectorQueue<T>::empty()
+{
+	return arr.empty();
+}
+
+template<class T>
+inline VectorQueue<T>::~VectorQueue()
+{
+	for (auto a : arr)
+		delete a;
+	arr.clear();
+}

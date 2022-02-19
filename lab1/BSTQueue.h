@@ -9,9 +9,10 @@ public:
 	void push(T data, int priority);
 	T peek();	
 	T pop();
+	bool empty();
 	~BSTQueue()
 	{
-		
+		deleteTree();
 	}
 private:
 	struct Tree
@@ -39,6 +40,7 @@ private:
 	Tree* head = nullptr;
 	void insert(T data, int priority);
 	Tree* minTree();
+	void deleteTree(Tree* node);
 };
 
 template<class T>
@@ -54,14 +56,14 @@ void BSTQueue<T>::push(T data, int priority)
 template<class T>
 T BSTQueue<T>::peek()
 {
-	if (head != nullptr)
+	if (!empty())
 		return minTree()->data->peek();
 	throw std::runtime_error("Queue is empty");
 }
 template<class T>
 T BSTQueue<T>::pop()
 {
-	if (head != nullptr)
+	if (!empty())
 	{
 		if (head->lt == nullptr)
 		{
@@ -99,6 +101,11 @@ T BSTQueue<T>::pop()
 		return data_to_pop;
 	}
 	throw std::runtime_error("Queue is empty");
+}
+template<class T>
+inline bool BSTQueue<T>::empty()
+{
+	return head == nullptr;
 }
 template<class T> typename
 void BSTQueue<T>::insert(T data, int priority)
@@ -147,4 +154,16 @@ BSTQueue<T>::Tree* BSTQueue<T>::minTree()
 		current = current->lt;
 	}
 	return current;
+}
+
+template<class T>
+inline void BSTQueue<T>::deleteTree(Tree* node)
+{
+	if (node == nullptr)
+		return;
+
+	deleteTree(node->lt);
+	deleteTree(node->rt);
+
+	delete node;
 }

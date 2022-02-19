@@ -1,5 +1,5 @@
 #pragma once
-static class Utils
+class Utils
 {
 public:
 	static int randInt(int min, int max);

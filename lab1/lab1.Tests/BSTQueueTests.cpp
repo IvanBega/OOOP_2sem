@@ -8,7 +8,15 @@ namespace lab1Tests
 	TEST_CLASS(BSTQueueTests)
 	{
 	public:
-
+		TEST_METHOD(EmptyQueueTest)
+		{
+			auto q = new BSTQueue<int>;
+			Assert::IsTrue(q->empty());
+			q->push(1, 1);
+			Assert::IsFalse(q->empty());
+			q->pop();
+			Assert::IsTrue(q->empty());
+		}
 		TEST_METHOD(AddAndPopOneElement)
 		{
 			auto q = new BSTQueue<int>;

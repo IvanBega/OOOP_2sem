@@ -23,6 +23,7 @@ public:
 	void subtractTime(Time& time);
 	void addDays(int day);
 	void addDate(Date& date);
+	void addDate(int year, int month, int day);
 	void subtractDate(Date& date);
 	void addSeconds(int seconds);
 	void randomFill();

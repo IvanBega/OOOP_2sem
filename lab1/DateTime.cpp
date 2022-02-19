@@ -79,6 +79,11 @@ void DateTime::addDate(Date& date)
 	addDays(Date::getDaysFromDate(date));
 }
 
+void DateTime::addDate(int year, int month, int day)
+{
+	addDays(Date::getDaysFromDate(year, month, day));
+}
+
 void DateTime::subtractDate(Date& date)
 {
 	addDays(-Date::getDaysFromDate(date));

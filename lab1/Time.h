@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+/// <summary>
+/// Class for representing time - hours, minutes, seconds
+/// </summary>
 class Time
 {
 public:
@@ -24,10 +27,28 @@ public:
 	void randomFill();
 	static bool isCorrect(int hour, int minute, int second);
 protected:
+	/// <summary>
+	/// second
+	/// </summary>
 	int _sec;
+	/// <summary>
+	/// minute
+	/// </summary>
 	int _min;
+	/// <summary>
+	/// hour
+	/// </summary>
 	int _hour;
+	/// <summary>
+	/// seconds per minute
+	/// </summary>
 	static const int secPerMinute = 60;
+	/// <summary>
+	/// seconds per hour
+	/// </summary>
 	static const int secPerHour = 60 * secPerMinute;
+	/// <summary>
+	/// seconds per day
+	/// </summary>
 	static const int secPerDay = 24 * secPerHour;
 };

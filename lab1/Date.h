@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
-
+/// <summary>
+/// Class for representing date - years, months, days
+/// </summary>
 class Date
 {
 public:
@@ -25,9 +27,21 @@ public:
 protected:
 	const static int days_in_month[12];
 	const static int total_days_in_month[12];
+	/// <summary>
+	/// amount of days in a year
+	/// </summary>
 	static const int daysPearYear = 365;
 	static int getDaysInMonth(int month,int year);
+	/// <summary>
+	/// day
+	/// </summary>
 	int _day;
+	/// <summary>
+	/// month
+	/// </summary>
 	int _month;
+	/// <summary>
+	/// year
+	/// </summary>
 	int _year;
 };

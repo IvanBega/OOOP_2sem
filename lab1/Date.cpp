@@ -4,16 +4,34 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+/// <summary>
+/// empty constructor
+/// </summary>
 Date::Date() : _day(0), _month(0), _year(0)
 {
 
 }
+/// <summary>
+/// destructor
+/// </summary>
 Date::~Date()
 {
 
 }
+/// <summary>
+/// stores amount of days in each month
+/// </summary>
 const int Date::days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+/// <summary>
+/// stores total amount of days in months
+/// </summary>
 const int Date::total_days_in_month[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+/// <summary>
+/// gets amount of days in month
+/// </summary>
+/// <param name="month">month</param>
+/// <param name="year">year</param>
+/// <returns>returns amount of days in month</returns>
 int Date::getDaysInMonth(int month, int year)
 {
 	if (month < 0 || month > 11)
@@ -25,10 +43,22 @@ int Date::getDaysInMonth(int month, int year)
 		return 29;
 	return 28;
 }
+/// <summary>
+/// gets total amount of days in date, starting from 0/0/0000
+/// </summary>
+/// <param name="date">date</param>
+/// <returns>returns total amount of days</returns>
 int Date::getDaysFromDate(const Date& date)
 {
 	return Date::getDaysFromDate(date._year, date._month, date._day);
 }
+/// <summary>
+/// gets total amount of days in date, starting from 0-th day, 0-th month, 0-th year
+/// </summary>
+/// <param name="year">year</param>
+/// <param name="month">month</param>
+/// <param name="day">day</param>
+/// <returns>returns total amount of days in date, starting from 0-th day, 0-th month, 0-th year</returns>
 int Date::getDaysFromDate(int year, int month, int day)
 {
 	int days = 0;
@@ -40,6 +70,11 @@ int Date::getDaysFromDate(int year, int month, int day)
 		days++; // add leap day in the current year
 	return days;
 }
+/// <summary>
+/// creates date from days, starting from 0-th day, 0-th month, 0-th year
+/// </summary>
+/// <param name="_days"></param>
+/// <returns>returns Date from days</returns>
 Date Date::setDateFromDays(int _days)
 {
 	Date date;
@@ -60,6 +95,10 @@ Date Date::setDateFromDays(int _days)
 
 	return date;
 }
+/// <summary>
+/// adds days to date
+/// </summary>
+/// <param name="days">days to add</param>
 void Date::addDays(int days)
 {
 	if (days == 0)
@@ -73,36 +112,64 @@ void Date::addDays(int days)
 	this->_month = temp._month;
 	this->_day = temp._day;
 }
+/// <summary>
+/// gets day
+/// </summary>
+/// <returns>returns day</returns>
 int Date::getDay()
 {
 	return _day;
 }
+/// <summary>
+/// gets month
+/// </summary>
+/// <returns>returns month</returns>
 int Date::getMonth()
 {
 	return _month;
 }
+/// <summary>
+/// gets year
+/// </summary>
+/// <returns>returns year</returns>
 int Date::getYear()
 {
 	return _year;
 }
+/// <summary>
+/// sets day
+/// </summary>
+/// <param name="day">day</param>
 void Date::setDay(int day)
 {
 	if (day < 0 || day >= Date::getDaysInMonth(_month, _year))
 		throw std::invalid_argument("Day is out of range");
 	_day = day;
 }
+/// <summary>
+/// sets month
+/// </summary>
+/// <param name="month">month</param>
 void Date::setMonth(int month)
 {
 	if (month < 0 || month > 11)
 		throw std::invalid_argument("Month is out of range");
 	_month = month;
 }
+/// <summary>
+/// sets year
+/// </summary>
+/// <param name="year">year</param>
 void Date::setYear(int year)
 {
 	if (year < 0 || year > 2999)
 		throw std::invalid_argument("Year is out of range");
 	_year = year;
 }
+/// <summary>
+/// returns string representation of date
+/// </summary>
+/// <returns>returns string representation in format "X years, X months, X days"</returns>
 std::string Date::toString() const
 {
 	std::string s;
@@ -114,12 +181,24 @@ std::string Date::toString() const
 	s.append("days");
 	return s;
 }
+/// <summary>
+/// fills date randomly
+/// </summary>
+/// <param name="minYear">minimun year</param>
+/// <param name="maxYear">maximum year</param>
 void Date::randomFill(int minYear = 0, int maxYear = 10)
 {
 	_year = Utils::randInt(minYear, maxYear);
 	_month = Utils::randInt(0, 11);
 	_day = Utils::randInt(0, getDaysInMonth(_month, _year) - 1);
 }
+/// <summary>
+/// checks whether the date is valid
+/// </summary>
+/// <param name="year">year</param>
+/// <param name="month">month</param>
+/// <param name="day">day</param>
+/// <returns>returns true if date is valid, false otherwise</returns>
 bool Date::isCorrect(int year, int month, int day)
 {
 	if (year < 0 || year > 9999)
@@ -130,6 +209,12 @@ bool Date::isCorrect(int year, int month, int day)
 		return false;
 	return true;
 }
+/// <summary>
+/// parameterized constructor
+/// </summary>
+/// <param name="year">year to set</param>
+/// <param name="month">month to set</param>
+/// <param name="day">day to set</param>
 Date::Date(int year, int month, int day)
 {
 	if (!isCorrect(year, month, day))
@@ -141,12 +226,24 @@ Date::Date(int year, int month, int day)
 	_month = month;
 	_year = year;
 }
+/// <summary>
+/// output operator
+/// </summary>
+/// <param name="os"></param>
+/// <param name="date"></param>
+/// <returns></returns>
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
 	using namespace std;
 	os << date.toString();
 	return os;
 }
+/// <summary>
+/// compares dates by year, month and day
+/// </summary>
+/// <param name="date1">first day to compare</param>
+/// <param name="date2">second day to compare</param>
+/// <returns>returns true if dates are equal, false otherwise</returns>
 bool operator==(const Date& date1, const Date& date2)
 {
 	return (date1._year == date2._year &&

@@ -241,8 +241,8 @@ std::ostream& operator<<(std::ostream& os, const Date& date)
 /// <summary>
 /// compares dates by year, month and day
 /// </summary>
-/// <param name="date1">first day to compare</param>
-/// <param name="date2">second day to compare</param>
+/// <param name="date1">first date to compare</param>
+/// <param name="date2">second date to compare</param>
 /// <returns>returns true if dates are equal, false otherwise</returns>
 bool operator==(const Date& date1, const Date& date2)
 {

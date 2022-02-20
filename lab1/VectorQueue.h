@@ -1,6 +1,10 @@
 #pragma once
 #include <vector>
 #include "Queue.h"
+/// <summary>
+/// Class which implements priority queue based on vector
+/// </summary>
+/// <typeparam name="T">data type of elements that stored in queue</typeparam>
 template <class T>
 class VectorQueue : public Queue<T>
 {
@@ -53,6 +57,9 @@ public:
 	bool empty();
 	~VectorQueue();
 private:
+	/// <summary>
+	/// stores data and priority of an element
+	/// </summary>
 	struct elem
 	{
 		T data;
@@ -62,6 +69,9 @@ private:
 			data = Data; priority = Priority;
 		}
 	};
+	/// <summary>
+	/// vector in which elements are stored
+	/// </summary>
 	std::vector<elem> arr;
 };
 
@@ -70,7 +80,10 @@ inline bool VectorQueue<T>::empty()
 {
 	return arr.empty();
 }
-
+/// <summary>
+/// deletes priority queue
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template<class T>
 inline VectorQueue<T>::~VectorQueue()
 {

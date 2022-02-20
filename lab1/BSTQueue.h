@@ -2,6 +2,10 @@
 #include "Queue.h"
 #include "LinkedListQueue.h"
 #include <iostream>
+/// <summary>
+/// Class which implements a priority queue based on binary search tree
+/// </summary>
+/// <typeparam name="T">data type of elements that stored in queue</typeparam>
 template<class T>
 class BSTQueue : public Queue<T>
 {
@@ -10,11 +14,11 @@ public:
 	T peek();	
 	T pop();
 	bool empty();
-	~BSTQueue()
-	{
-		deleteTree();
-	}
+	~BSTQueue();
 private:
+	/// <summary>
+	/// node of a tree which stores data and priority
+	/// </summary>
 	struct Tree
 	{
 		LinkedListQueue<T>* data;
@@ -37,6 +41,9 @@ private:
 			}
 		}
 	};
+	/// <summary>
+	/// head of a tree
+	/// </summary>
 	Tree* head = nullptr;
 	void insert(T data, int priority);
 	Tree* minTree();
@@ -107,6 +114,20 @@ inline bool BSTQueue<T>::empty()
 {
 	return head == nullptr;
 }
+/// <summary>
+/// deletes priority queue
+/// </summary>
+/// <typeparam name="T"></typeparam>
+template<class T>
+inline BSTQueue<T>::~BSTQueue()
+{
+	deleteTree();
+}
+/// <summary>
+/// inserts element into tree
+/// </summary>
+/// <param name="data">data to insert</param>
+/// <param name="priority">priority of data</param>
 template<class T> typename
 void BSTQueue<T>::insert(T data, int priority)
 {
@@ -145,6 +166,10 @@ void BSTQueue<T>::insert(T data, int priority)
 		prev->lt = new Tree(data, priority, nullptr, nullptr);
 	}
 }
+/// <summary>
+/// returns minimum node of a tree
+/// </summary>
+/// <returns></returns>
 template<class T> typename
 BSTQueue<T>::Tree* BSTQueue<T>::minTree()
 {
@@ -155,7 +180,11 @@ BSTQueue<T>::Tree* BSTQueue<T>::minTree()
 	}
 	return current;
 }
-
+/// <summary>
+/// recursively deletes tree
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <param name="node">head of a tree</param>
 template<class T>
 inline void BSTQueue<T>::deleteTree(Tree* node)
 {

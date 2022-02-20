@@ -1,18 +1,24 @@
 #include "UserInterface.h"
-
+/// <summary>
+/// deletes priority queue and current DateTime
+/// </summary>
 UserInterface::~UserInterface()
 {
 	delete queue;
 	delete current;
 }
-
+/// <summary>
+/// function which calls SelectQueue() method and opens Menu
+/// </summary>
 void UserInterface::Display()
 {
 	SelectQueue();
 	std::cout << "Queue has been successfully selected!\n";
 	Menu();
 }
-
+/// <summary>
+/// Priority queue selection logic
+/// </summary>
 void UserInterface::SelectQueue()
 {
 	int option = 0;
@@ -42,7 +48,9 @@ void UserInterface::SelectQueue()
 		break;
 	}
 }
-
+/// <summary>
+/// Main menu logic
+/// </summary>
 void UserInterface::Menu()
 {
 	bool flag = true;
@@ -80,7 +88,9 @@ void UserInterface::Menu()
 		}
 	}
 }
-
+/// <summary>
+/// DateTime creation logic
+/// </summary>
 void UserInterface::CreateDateTime()
 {
 	int option = 0;
@@ -101,11 +111,12 @@ void UserInterface::CreateDateTime()
 		break;
 	}
 }
-
+/// <summary>
+/// filling DateTime manually from console
+/// </summary>
 void UserInterface::FillDateTimeFromConsole()
 {
 	int year, month, day, hour, minute, second;
-	//delete current;
 	EnterDatePartFromConsole(year, month, day);
 	EnterTimePartFromConsole(hour, minute, second);
 	
@@ -113,14 +124,18 @@ void UserInterface::FillDateTimeFromConsole()
 	current = new DateTime(year, month, day, hour, minute, second);
 	std::cout << "You've entered: " << *current << "\n";
 }
-
+/// <summary>
+/// filling DateTime with random data
+/// </summary>
 void UserInterface::FillDateTimeRandom()
 {
 	current = new DateTime();
 	current->randomFill();
 	std::cout << "You have randomly filled DateTime: " << *current << "\n";
 }
-
+/// <summary>
+/// print current DateTime to console
+/// </summary>
 void UserInterface::PrintCurrentDateTime()
 {
 	if (current != nullptr)
@@ -130,7 +145,9 @@ void UserInterface::PrintCurrentDateTime()
 	else
 		std::cout << "Current DateTime is empty!\n";
 }
-
+/// <summary>
+/// modify, add time or date to current DateTime
+/// </summary>
 void UserInterface::ModifyCurrentDateTime()
 {
 	int option = 0;
@@ -151,21 +168,30 @@ void UserInterface::ModifyCurrentDateTime()
 		}
 	}
 }
-
+/// <summary>
+/// add time to current DateTime from console
+/// </summary>
 void UserInterface::AddTimeToDateTime()
 {
 	int hour, minute, second;
 	EnterTimePartFromConsole(hour, minute, second);
 	current->addTime(hour, minute, second);
 }
-
+/// <summary>
+/// add date to current DateTime from console
+/// </summary>
 void UserInterface::AddDateToDateTime()
 {
 	int year, month, day;
 	EnterDateFromConsole(year, month, day);
 	current->addDate(year, month, day);
 }
-
+/// <summary>
+/// enters Time part from console
+/// </summary>
+/// <param name="hour"></param>
+/// <param name="minute"></param>
+/// <param name="second"></param>
 void UserInterface::EnterTimePartFromConsole(int& hour, int& minute, int& second)
 {
 	while (true)
@@ -182,7 +208,12 @@ void UserInterface::EnterTimePartFromConsole(int& hour, int& minute, int& second
 		}
 	}
 }
-
+/// <summary>
+/// enters Date part from console
+/// </summary>
+/// <param name="year"></param>
+/// <param name="month"></param>
+/// <param name="day"></param>
 void UserInterface::EnterDatePartFromConsole(int& year, int& month, int& day)
 {
 	while (true)
@@ -199,7 +230,12 @@ void UserInterface::EnterDatePartFromConsole(int& year, int& month, int& day)
 		}
 	}
 }
-
+/// <summary>
+/// enter Date from console
+/// </summary>
+/// <param name="year"></param>
+/// <param name="month"></param>
+/// <param name="day"></param>
 void UserInterface::EnterDateFromConsole(int& year, int& month, int& day)
 {
 	while (true)
@@ -216,7 +252,9 @@ void UserInterface::EnterDateFromConsole(int& year, int& month, int& day)
 		}
 	}
 }
-
+/// <summary>
+/// pushed current DateTime to the priority queue with selected priority
+/// </summary>
 void UserInterface::PushCurrentDateTime()
 {
 	int priority = 0;
@@ -225,7 +263,9 @@ void UserInterface::PushCurrentDateTime()
 	queue->push(current, priority);
 	std::cout << "Pushed " << *current << " to the queue under priority << " << priority << "\n";
 }
-
+/// <summary>
+/// peeks DateTime to current from priority queue
+/// </summary>
 void UserInterface::PeekDateTimeToCurrent()
 {
 	if (queue->empty())
@@ -236,7 +276,9 @@ void UserInterface::PeekDateTimeToCurrent()
 	current = queue->peek();
 	std::cout << "Peeked DateTime to current: " << *current << "\n";
 }
-
+/// <summary>
+/// pops DateTime to current from priority queue
+/// </summary>
 void UserInterface::PopDateTimeToCurrent()
 {
 	if (queue->empty())
@@ -247,7 +289,9 @@ void UserInterface::PopDateTimeToCurrent()
 	current = queue->pop();
 	std::cout << "Popped DateTime to current: " << *current << "\n";
 }
-
+/// <summary>
+/// constructor
+/// </summary>
 UserInterface::UserInterface()
 {
 	Display();

@@ -1,5 +1,9 @@
 #pragma once
 #include "Queue.h"
+/// <summary>
+/// Class which implements priority queue based on linked list
+/// </summary>
+/// <typeparam name="T">data type of elements that stored in queue</typeparam>
 template<class T>
 class LinkedListQueue : public Queue<T>
 {
@@ -10,12 +14,18 @@ public:
 	bool empty();
 	~LinkedListQueue();
 private:
+	/// <summary>
+	/// node of linked list
+	/// </summary>
 	struct Node
 	{
 		T data;
 		Node* next = nullptr;
 		int priority = 0;
 	};
+	/// <summary>
+	/// head of linked list
+	/// </summary>
 	Node* head = nullptr;
 };
 
@@ -74,7 +84,10 @@ inline bool LinkedListQueue<T>::empty()
 {
 	return head == nullptr;
 }
-
+/// <summary>
+/// deletes priority queue
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template<class T>
 inline LinkedListQueue<T>::~LinkedListQueue()
 {

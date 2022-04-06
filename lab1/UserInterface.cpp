@@ -96,7 +96,7 @@ void UserInterface::CreateDateTime()
 	int option = 0;
 	while (option < 1 || option > 3)
 	{
-		std::cout << "1 - fill DateTime from Console\n2 - fill DateTime randomly\n3 - menu\n";
+		std::cout << "--------------------------------------------------\n1 - fill DateTime from Console\n2 - fill DateTime randomly\n3 - menu\n--------------------------------------------------\n\n";
 		std::cin >> option;
 	}
 	switch (option)

@@ -25,6 +25,7 @@ private:
 	Queue<DateTime*>* queue = nullptr;
 	void Display();
 	void SelectQueue();
+	void StartMenu();
 	void Menu();
 	void CreateDateTime();
 	void FillDateTimeFromConsole();

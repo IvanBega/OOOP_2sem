@@ -1,10 +1,11 @@
 #pragma once
+#include "MergeSort.h"
 #include <vector>
 template <typename T>
-class ClassicMergeSort
+class ClassicMergeSort : public MergeSort<T>
 {
 private:
-	std::vector<T> array;
+	//std::vector<T> array;
 	void copyArray(std::vector<T>& copy, int start, int size);
 public:
 	void setArray(std::vector<T> array);

@@ -14,7 +14,7 @@ void UserInterface::Display()
 {
 	SelectQueue();
 	std::cout << "Queue has been successfully selected!\n";
-	Menu();
+	StartMenu();
 }
 /// <summary>
 /// Priority queue selection logic
@@ -47,6 +47,27 @@ void UserInterface::SelectQueue()
 	case 5:
 		break;
 	}
+}
+/// <summary>
+/// Menu logic if current DateTime is not assigned
+/// </summary>
+void UserInterface::StartMenu()
+{
+	int option = 0;
+	while (option < 1 || option > 2)
+	{
+		
+		std::cout << "\n--------------------------------------------------\n1 - create current DateTime\n2 - exit\n--------------------------------------------------\n\n";
+		std::cin >> option;
+
+	}
+	switch (option)
+	{
+	case 1:
+		CreateDateTime();
+		break;
+	}
+	Menu();
 }
 /// <summary>
 /// Main menu logic
@@ -99,6 +120,7 @@ void UserInterface::CreateDateTime()
 		std::cout << "--------------------------------------------------\n1 - fill DateTime from Console\n2 - fill DateTime randomly\n3 - menu\n--------------------------------------------------\n\n";
 		std::cin >> option;
 	}
+	delete current;
 	switch (option)
 	{
 	case 1:
@@ -151,6 +173,11 @@ void UserInterface::PrintCurrentDateTime()
 void UserInterface::ModifyCurrentDateTime()
 {
 	int option = 0;
+	if (current == nullptr)
+	{
+		std::cout << "Current DateTime is empty!\n";
+		return;
+	}
 	while (option < 1 || option > 3)
 	{
 		std::cout << "1 - add time\n2 - add date\n3 - menu\n";

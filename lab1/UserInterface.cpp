@@ -67,7 +67,8 @@ void UserInterface::StartMenu()
 		CreateDateTime();
 		break;
 	}
-	Menu();
+	if (option != 2)
+		Menu();
 }
 /// <summary>
 /// Main menu logic
@@ -120,7 +121,6 @@ void UserInterface::CreateDateTime()
 		std::cout << "--------------------------------------------------\n1 - fill DateTime from Console\n2 - fill DateTime randomly\n3 - menu\n--------------------------------------------------\n\n";
 		std::cin >> option;
 	}
-	delete current;
 	switch (option)
 	{
 	case 1:

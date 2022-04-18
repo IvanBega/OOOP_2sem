@@ -1,10 +1,11 @@
 Priority queue - an extension of the queue with next properties:
 	1) Every item has a priority associated with it.
 	2) An element with higher priority is dequeued before an element with low priority
+	3) If two elements have the same priority, they are served according to the order in which they were enqueued
 Priority - an integer assigned to every item in the priority queue
 Push - add an element to the priority queue
-Pop - deque an element with highest priority
+Pop - remove and return an element with highest priority
 Peek - return an element with highest priority without removing it from the priority queue
-Date - a data type which used for date time but no time part - day, month and year
-Time - a data type which used to save time - hours, minutes, seconds
-DateTime - a data types which stores date and time part together
+Date - an abstraction which used for date time only
+Time - an abstraction which used to save time - hours, minutes, seconds
+DateTime - an abstraction which stores date and time part together

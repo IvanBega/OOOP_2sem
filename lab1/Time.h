@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 /// <summary>
-/// Class for representing time - hours, minutes, seconds
+/// Class for representing time in hours, minutes, seconds
 /// </summary>
 class Time
 {

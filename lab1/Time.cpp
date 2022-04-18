@@ -107,7 +107,9 @@ Time::Time(int hour, int minute, int second)
 	setSecond(second);
 }
 /// <summary>
-/// adds time represented in hours, minutes, seconds
+/// adds time represented in hours, minutes, seconds. If
+/// resulting time exceeds 24 hours, then it loops
+/// through 4.
 /// </summary>
 /// <param name="hour">hours to add</param>
 /// <param name="minute">minutes to add</param>

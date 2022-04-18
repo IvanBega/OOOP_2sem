@@ -24,7 +24,7 @@ namespace lab1Tests
 			DateTime dt1(2020, 2, 28, 3, 4, 5);
 			dt1.addSeconds(86400);
 			DateTime expected1(2020, 2, 29, 3, 4, 5);
-			actual = dt1 == expected1;
+			actual = (dt1 == expected1);
 			Assert::IsTrue(actual);
 
 			DateTime dt2(2020, 2, 28, 3, 4, 5);
@@ -94,9 +94,7 @@ namespace lab1Tests
 			DateTime dt1(2022, 2, 13, 12, 54, 0);
 			std::string expected = "13.02.2022 12:54:00";
 			std::stringstream buffer;
-			std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
-			std::cout << dt1;
-
+			buffer << dt1;
 			std::string actual = buffer.str();
 			Assert::AreEqual(expected, actual);
 		}

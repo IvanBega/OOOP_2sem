@@ -3,7 +3,9 @@
 #include "Date.h"
 #include "Time.h"
 /// <summary>
-/// Class for representing date and time
+/// Class for representing date and time. Months and days are stored
+/// starting from 1. Julian calendar is used. Leap days are supported, with each leap February
+/// contains 29 days.
 /// </summary>
 class DateTime : public Date, public Time
 {

@@ -64,7 +64,7 @@ int Date::getDaysFromDate(int year, int month, int day)
 	int days = 0;
 	int leapDays = year / 4;
 
-	days = year * daysPearYear + leapDays + total_days_in_month[month] + day;
+	days = year * daysPerYear + leapDays + total_days_in_month[month] + day;
 
 	if (year % 4 == 3 && month > 1)
 		days++; // add leap day in the current year
@@ -82,8 +82,8 @@ Date Date::setDateFromDays(int _days)
 	int full4Years = _days / daysPer4Years;
 	date._year = 4 * full4Years;
 	int daysLeft = _days - daysPer4Years * full4Years;
-	date._year += daysLeft / daysPearYear;
-	daysLeft = daysLeft - daysPearYear * (daysLeft / daysPearYear);
+	date._year += daysLeft / daysPerYear;
+	daysLeft = daysLeft - daysPerYear * (daysLeft / daysPerYear);
 	date._month = 0;
 	while (daysLeft >= getDaysInMonth(date._month, date._year))
 	{

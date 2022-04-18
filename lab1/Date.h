@@ -1,7 +1,12 @@
 #pragma once
 #include <iostream>
 /// <summary>
-/// Class for representing date - years, months, days
+/// Class for representing date - years, months, days.
+/// Months are starting from zero. Julian calendar is used.
+/// Leap days are supported, with each leap February
+/// contains 29 days.
+/// Accepted years are between 1 and 9999 in order
+/// to prevent overflow.
 /// </summary>
 class Date
 {
@@ -30,7 +35,7 @@ protected:
 	/// <summary>
 	/// amount of days in a year
 	/// </summary>
-	static const int daysPearYear = 365;
+	static const int daysPerYear = 365;
 	static int getDaysInMonth(int month,int year);
 	/// <summary>
 	/// day

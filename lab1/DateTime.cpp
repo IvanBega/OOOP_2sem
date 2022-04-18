@@ -154,7 +154,8 @@ void DateTime::subtractDate(Date& date)
 	addDays(-Date::getDaysFromDate(date));
 }
 /// <summary>
-/// adds or subtract  seconds
+/// adds or subtract  seconds. If resulted time exceeds
+/// 24 hours, then corresponding amount of days are added.
 /// </summary>
 /// <param name="seconds">seconds to add or subtract</param>
 void DateTime::addSeconds(int seconds)

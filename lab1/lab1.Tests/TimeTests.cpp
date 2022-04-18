@@ -76,21 +76,9 @@ namespace lab1Tests
 			Time time1(15, 42, 30);
 			std::string expected = "15:42:30";
 			std::stringstream buffer;
-			std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
-			std::cout << time1;
+			buffer << time1;
 
 			std::string actual = buffer.str();
-			Assert::AreEqual(expected, actual);
-
-
-			
-			buffer.swap(stringstream()); // clear the buffer
-
-			Time time2(3, 0, 2);
-			expected = "03:00:02";
-			std::cout << time2;
-			
-			actual = buffer.str();
 			Assert::AreEqual(expected, actual);
 		}
 	};

@@ -5,7 +5,7 @@ int main()
 {
 
     ClassicMergeSort<int> sort;
-    std::vector<int> a = std::vector<int>{ 10, 18, 3,4,1 ,0, 4, 6, 5, 1, 66, 1, 4 };
+    std::vector<int> a = std::vector<int>{ 10, 18, 3,4,1 ,0, 4, 6, 5, 1, 66, 1, 4, 124 };
     //std::vector<int> b = Utils::randVec(0, 10, 5);
     sort.setArray(a);
     sort.sort();

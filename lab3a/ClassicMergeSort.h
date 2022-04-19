@@ -5,10 +5,10 @@ template <typename T>
 class ClassicMergeSort : public MergeSort<T>
 {
 private:
-	//std::vector<T> array;
+	//std::vector<T> vec;
 	void copyArray(std::vector<T>& copy, int start, int size);
 public:
-	void setArray(std::vector<T> array);
+	void setArray(std::vector<T> vec);
 	std::vector<T> getArray();
 	void sort();
 	void merge(int start, int middle, int end);
@@ -22,26 +22,26 @@ void ClassicMergeSort<T>::copyArray(std::vector<T>& copy, int start, int size)
 	copy.clear();
 	for (unsigned int i = 0; i < size; i++)
 	{
-		copy.push_back(array[start + i]);
+		copy.push_back(MergeSort<T>::vec[start + i]);
 	}
 }
 
 template<typename T>
-inline void ClassicMergeSort<T>::setArray(std::vector<T> array)
+inline void ClassicMergeSort<T>::setArray(std::vector<T> vec)
 {
-	this->array = std::move(array);
+	this->vec = std::move(vec);
 }
 
 template<typename T>
 inline std::vector<T> ClassicMergeSort<T>::getArray()
 {
-	return this->array;
+	return this->vec;
 }
 
 template<typename T>
 void ClassicMergeSort<T>::sort()
 {
-	merge_sort(0, array.size());
+	merge_sort(0, MergeSort<T>::vec.size());
 }
 
 template<typename T>
@@ -58,20 +58,20 @@ void ClassicMergeSort<T>::merge(int start, int middle, int end)
 	{
 		if (leftPart[i] <= rightPart[j])
 		{
-			array[k] = leftPart[i];
+			MergeSort<T>::vec[k] = leftPart[i];
 			i++;
 		}
 		else
 		{
-			array[k] = rightPart[j];
+			MergeSort<T>::vec[k] = rightPart[j];
 			j++;
 		}
 		k++;
 	}
 	for (; i < leftIndex; i++, k++)
-		array[k] = leftPart[i];
+		MergeSort<T>::vec[k] = leftPart[i];
 	for (; j < rightIndex; j++, k++)
-		array[k] = rightPart[j];
+		MergeSort<T>::vec[k] = rightPart[j];
 
 }
 

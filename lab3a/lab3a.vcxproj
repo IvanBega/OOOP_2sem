@@ -142,11 +142,13 @@
     <ClCompile Include="ClassicMergeSort.cpp" />
     <ClCompile Include="lab3a.cpp" />
     <ClCompile Include="MergeSort.cpp" />
+    <ClCompile Include="ParallelMergeSort.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassicMergeSort.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="ParallelMergeSort.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

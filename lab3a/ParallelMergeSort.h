@@ -8,9 +8,9 @@ class ParallelMergeSort : public MergeSort<T>
 private:
 	int maximumThreadCount = std::thread::hardware_concurrency();
 	int currentThreads = 0;
+	void merge_sort(int start, int end);
 public:
 	void sort();
-	void merge_sort(int start, int end);
 	ParallelMergeSort() = default;
 };
 

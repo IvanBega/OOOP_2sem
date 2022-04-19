@@ -7,14 +7,12 @@ class MergeSort
 protected:
 	std::vector<T> vec;
 	void copyArray(std::vector<T>& copy, int start, int size);
-private:
-	
+	void merge(int start, int middle, int end);
+	virtual void merge_sort(int start, int end) = 0;
 public:
 	void setArray(std::vector<T> vec);
 	std::vector<T> getArray();
 	virtual void sort()= 0;
-	void merge(int start, int middle, int end);
-	virtual void merge_sort(int start, int end) = 0;
 };
 template<typename T>
 void MergeSort<T>::copyArray(std::vector<T>& copy, int start, int size)

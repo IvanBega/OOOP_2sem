@@ -8,7 +8,6 @@ private:
 	void merge_sort(int start, int end);
 public:
 	void sort();
-	//void merge_sort(int start, int end);
 	ClassicMergeSort() = default;
 };
 template<typename T>

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClassicMergeSort.cpp" />
+    <ClCompile Include="CompareSorts.cpp" />
     <ClCompile Include="lab3a.cpp" />
     <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="ParallelMergeSort.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassicMergeSort.h" />
+    <ClInclude Include="CompareSorts.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="ParallelMergeSort.h" />
     <ClInclude Include="Utils.h" />

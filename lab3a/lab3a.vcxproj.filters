@@ -30,6 +30,9 @@
     <ClCompile Include="ParallelMergeSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CompareSorts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassicMergeSort.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParallelMergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompareSorts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

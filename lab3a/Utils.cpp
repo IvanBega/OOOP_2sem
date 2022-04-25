@@ -21,4 +21,5 @@ std::vector<int> Utils::randVec(int min, int max, int size)
         return a;
     for (int i = 0; i < size; i++)
         a.push_back(randInt(min, max));
+    return a;
 }

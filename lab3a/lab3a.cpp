@@ -39,9 +39,9 @@ int main()
             std::cout << "\n";
         std::cout << elem << " ";
     }*/
-    CompareSorts<int> comparator;
-    std::vector<int> range = { 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000,
-    15000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000};
-    comparator.TestClassic(range);
-    comparator.TestParallel(range);
+    //CompareSorts<int> comparator;
+    //std::vector<int> range = { 1, 2, 5, 10, 20, 50/*, 100, 200, 500, 1000, 2000, 5000, 10000,
+    //15000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000*/};
+    //comparator.TestClassic(range);
+    //comparator.TestParallel(range);
 }

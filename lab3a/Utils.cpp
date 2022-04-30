@@ -3,7 +3,12 @@
 #include <conio.h>
 #include <random>
 #include <ctime>
-
+/// <summary>
+/// Returns random integer between min and max (border values are included)
+/// </summary>
+/// <param name="min"></param>
+/// <param name="max"></param>
+/// <returns></returns>
 int Utils::randInt(int min, int max)
 {
     static std::random_device rd;
@@ -13,7 +18,13 @@ int Utils::randInt(int min, int max)
 
     return dist(gen);
 }
-
+/// <summary>
+/// Returns a vector of random integers (border values are included) of size "size"
+/// </summary>
+/// <param name="min"></param>
+/// <param name="max"></param>
+/// <param name="size"></param>
+/// <returns></returns>
 std::vector<int> Utils::randVec(int min, int max, int size)
 {
     std::vector<int> a;

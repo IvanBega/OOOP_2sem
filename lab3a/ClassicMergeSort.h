@@ -8,7 +8,6 @@ private:
 	void merge_sort(int start, int end);
 public:
 	void sort();
-	//ClassicMergeSort();
 };
 /// <summary>
 /// Main method for sorting an array

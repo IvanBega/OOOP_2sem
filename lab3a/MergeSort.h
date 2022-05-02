@@ -18,7 +18,7 @@ public:
 	std::vector<T> getArray();
 	virtual void sort()= 0;
 	MergeSort();
-	~MergeSort();
+	virtual ~MergeSort();
 };
 /// <summary>
 /// Copies elements to vector "copy" from main array vec

@@ -33,7 +33,6 @@ void ParallelMergeSort<T>::merge_sort(int start, int end)
 	if (end - start <= 1)
 		return;
 	int middle = (start + end) / 2;
-	//std::thread th;
 	if (currentThreads < maximumThreadCount)
 	{
 		std::thread th(&ParallelMergeSort<T>::merge_sort, this, start, middle);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.DataService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace project
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = UserDataService.Instance.MainViewModel;
         }
     }
 }

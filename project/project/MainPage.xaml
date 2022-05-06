@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project.MainPage">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Text="Fitness App"  HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Medium" Margin="0,-6,0,-6" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Grid.Column="0"></Label>
+            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <ImageButton HeightRequest="240" WidthRequest="240" BackgroundColor="DimGray"
+                             Source="https://i.postimg.cc/vB23G73C/image.png">
+                    
+                </ImageButton>
+            </Frame>
+            <Label Text="Developed by I.B." HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Title" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

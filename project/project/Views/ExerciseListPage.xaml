@@ -27,7 +27,8 @@
                     FontAttributes="Bold"
                     BackgroundColor="DimGray"
                     TextColor="White"
-                    CornerRadius="32">
+                    CornerRadius="32"
+                    Command="{Binding AddExerciseCommand}">
                 
                 
             </Button>

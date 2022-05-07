@@ -1,4 +1,7 @@
-﻿using System;
+﻿using project.Views.Popups;
+using Rg.Plugins.Popup.Contracts;
+using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
@@ -7,11 +10,16 @@ namespace project.ViewModel
 {
     public class ExerciseListViewModel
     {
+        private ExercisePopup _exercisePage;
+        private IPopupNavigation _popup { get; set; }
         public ExerciseListViewModel()
         {
             BackButtonCommand = new Command(BackButtonClicked);
             AddExerciseCommand = new Command(AddButtonClicked);
             RemoveExerciseCommand = new Command(RemoveButtonClicked);
+
+            _popup = PopupNavigation.Instance;
+            _exercisePage = new ExercisePopup();
         }
 
         private void RemoveButtonClicked(object obj)
@@ -19,9 +27,9 @@ namespace project.ViewModel
             throw new NotImplementedException();
         }
 
-        private void AddButtonClicked(object obj)
+        private async void AddButtonClicked(object obj)
         {
-            throw new NotImplementedException();
+            await _popup.PushAsync(_exercisePage);
         }
 
         public Command BackButtonCommand { get; set; }

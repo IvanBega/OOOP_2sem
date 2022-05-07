@@ -14,6 +14,8 @@ namespace project.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            Rg.Plugins.Popup.Popup.Init(this); // Rg.Plugins.Popup initialization
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
@@ -23,6 +25,13 @@ namespace project.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed() // OnBackPressed override for Rg.Plugins.Popup
+        {
+            base.OnBackPressed();
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
+
         }
     }
 }

@@ -13,7 +13,20 @@ namespace project.ViewModel
         public MainViewModel()
         {
             ExerciseCommand = new Command(ExerciseClicked);
-            ExerciseList = new List<ExerciseModel>();
+
+            ExerciseModel model = new ExerciseModel();
+            LogModel logModel = new LogModel();
+            logModel.Date = "01/01/22";
+            logModel.Reps = 0;
+            logModel.Sets = 0;
+            logModel.Weights = 0;
+            var logModelList = new List<LogModel>();
+            logModelList.Add(logModel);
+            model.Data = logModelList;
+            model.Name = "Random Name";
+
+
+            ExerciseList = new List<ExerciseModel>() { model };
 
         }
         public Command ExerciseCommand { get; set; }

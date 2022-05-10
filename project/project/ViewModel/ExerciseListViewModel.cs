@@ -1,8 +1,10 @@
-﻿using project.Views.Popups;
+﻿using project.Model;
+using project.Views.Popups;
 using Rg.Plugins.Popup.Contracts;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
@@ -12,6 +14,7 @@ namespace project.ViewModel
     {
         private ExercisePopup _exercisePage;
         private IPopupNavigation _popup { get; set; }
+        public ObservableCollection<ExerciseModel> ExerciseList { get; set; }
         public ExerciseListViewModel()
         {
             BackButtonCommand = new Command(BackButtonClicked);
@@ -38,6 +41,14 @@ namespace project.ViewModel
         private void BackButtonClicked(object obj)
         {
             Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private ObservableCollection<ExerciseModel> LoadList()
+        {
+            ObservableCollection<ExerciseModel> data = new ObservableCollection<ExerciseModel>();
+            foreach (ExerciseModel em in MainViewModel.ExerciseList)
+                data.Add(em);
+            return data;
         }
     }
 }

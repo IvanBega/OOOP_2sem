@@ -34,12 +34,20 @@
 
                     <ListView
                               Grid.Row="3"
-                              RowHeight="70">
+                              RowHeight="70"
+                              
+                              CachingStrategy="RecycleElement">
 
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
+                                    <Frame CornerRadius="28" BackgroundColor="White" Margin="10,5,10,5">
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                            </Grid.ColumnDefinitions>
+                                        </Grid>
+                                    </Frame>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>

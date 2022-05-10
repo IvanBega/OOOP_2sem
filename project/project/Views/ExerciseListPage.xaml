@@ -3,43 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="project.Views.ExerciseListPage"
              NavigationPage.HasNavigationBar="False">
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            
-            <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="100">
-                <ImageButton BackgroundColor="DimGray"
-                             Source="https://i.postimg.cc/vB23G73C/image.png" Command="{Binding BackButtonCommand}">
+    <Grid>
 
-                </ImageButton>
-                
+        <StackLayout Orientation="Vertical">
+            <Frame BackgroundColor="White" HeightRequest="30">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="backButton"
+                            Margin="0,-27"
+                            Command="{Binding BackButtonCommand}"
+                            CornerRadius="4"
+                            BackgroundColor="White"
+                            FontSize="34"
+                            VerticalOptions="StartAndExpand"
+                            Text="←" />
+                    <Label Text="{Binding Type}" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
             </Frame>
-            <Label Text="Developed by I.B." HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Title" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
-            <Button Text="Додати вправу" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" HeightRequest="100"
-                    FontAttributes="Bold"
-                    BackgroundColor="DimGray"
-                    TextColor="White"
-                    CornerRadius="32"
-                    Command="{Binding AddExerciseCommand}">
-                
-                
-            </Button>
-            <Button Text="Видалити вправу" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Small" HeightRequest="100"
-                    FontAttributes="Bold"
-                    BackgroundColor="DimGray"
-                    TextColor="White"
-                    CornerRadius="32">
+            <ScrollView Margin="10">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Frame BackgroundColor="White" CornerRadius="28" Grid.Row="2" Margin="10,0,10,0">
+                    </Frame>
+
+                    <ListView
+                              Grid.Row="3"
+                              RowHeight="70">
 
 
-            </Button>
-        </Grid>
-    </ScrollView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Button Text="Додати вправу" 
+                            Command="{Binding AddExerciseCommand}"
+                            Grid.Row="4"
+                            FontSize="Small" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="White"
+                            TextColor="Gray"
+                            HeightRequest="60"
+                            Margin="10,0,10,5"
+                            CornerRadius="32"/>
+
+                    <Button Text="Видалити вправу" 
+                        Command="{Binding RemoveExerciseCommand}"
+                        Grid.Row="5"
+                        FontSize="Small" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        TextColor="IndianRed"
+                        HeightRequest="60"
+                        Margin="10,0,10,5"
+                        CornerRadius="32"/>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+
+    </Grid>
 </ContentPage>

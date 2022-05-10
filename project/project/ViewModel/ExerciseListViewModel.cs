@@ -17,6 +17,8 @@ namespace project.ViewModel
         public ObservableCollection<ExerciseModel> ExerciseList { get; set; }
         public ExerciseListViewModel()
         {
+            ExerciseList = LoadList();
+
             BackButtonCommand = new Command(BackButtonClicked);
             AddExerciseCommand = new Command(AddButtonClicked);
             RemoveExerciseCommand = new Command(RemoveButtonClicked);

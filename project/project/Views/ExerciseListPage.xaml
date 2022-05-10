@@ -16,7 +16,7 @@
                             FontSize="34"
                             VerticalOptions="StartAndExpand"
                             Text="←" />
-                    <Label Text="{Binding Type}" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Вправи на ноги" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </Frame>
             <ScrollView Margin="10">
@@ -29,33 +29,48 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Frame BackgroundColor="White" CornerRadius="28" Grid.Row="2" Margin="10,0,10,0">
+                    <Frame BackgroundColor="AliceBlue" CornerRadius="28" Grid.Row="2" Margin="10,0,10,0">
                     </Frame>
 
                     <ListView
                               Grid.Row="3"
                               RowHeight="70"
-                              
+                              ItemsSource="{Binding ExerciseList}"
                               CachingStrategy="RecycleElement">
 
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame CornerRadius="28" BackgroundColor="White" Margin="10,5,10,5">
+                                    <Frame CornerRadius="28" BackgroundColor="Azure" Margin="10,5,10,5">
                                         <Grid HorizontalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="2" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="2" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="2" />
+                                                
                                             </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Name}" FontSize="Small" TextColor="Gray" FontAttributes="Bold" Grid.Column="0"/>
+                                            <BoxView WidthRequest="1" BackgroundColor="LightGray" Grid.Column="1"/>
+                                            <Label Text="{Binding Data[0].Weights, StringFormat='{0:F2} kg'}" TextColor="Gray" FontSize="Small" Grid.Column="2"/>
+                                            <BoxView WidthRequest="1" BackgroundColor="LightGray" Grid.Column="3"/>
+                                            <Label Text="{Binding Data[0].Date}" FontSize="Small" TextColor="Gray" Grid.Column="4"/>
                                         </Grid>
                                     </Frame>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
+                        
+                        
                     </ListView>
 
                     <Button Text="Додати вправу" 
                             Command="{Binding AddExerciseCommand}"
-                            Grid.Row="4"
+                            Grid.Row="0"
                             FontSize="Small" 
                             FontAttributes="Bold" 
                             HorizontalOptions="FillAndExpand"
@@ -67,7 +82,7 @@
 
                     <Button Text="Видалити вправу" 
                         Command="{Binding RemoveExerciseCommand}"
-                        Grid.Row="5"
+                        Grid.Row="1"
                         FontSize="Small" 
                         FontAttributes="Bold" 
                         HorizontalOptions="FillAndExpand"

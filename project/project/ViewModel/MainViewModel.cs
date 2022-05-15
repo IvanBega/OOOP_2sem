@@ -4,29 +4,32 @@ using System.Text;
 using Xamarin.Forms;
 using project.Views;
 using project.Model;
-
+using project.Repository;
 namespace project.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private readonly IRepository _repository;
         public static List<ExerciseModel> ExerciseList { get; set; }
-        public MainViewModel()
+        public MainViewModel(IRepository repository)
         {
+            _repository = repository;
             ExerciseCommand = new Command(ExerciseClicked);
 
-            ExerciseModel model = new ExerciseModel();
-            LogModel logModel = new LogModel();
-            logModel.Date = "01/01/22";
-            logModel.Reps = 0;
-            logModel.Sets = 0;
-            logModel.Weights = 0;
-            var logModelList = new List<LogModel>();
-            logModelList.Add(logModel);
-            model.Data = logModelList;
-            model.Name = "Random Name";
+            //ExerciseModel model = new ExerciseModel();
+            //LogModel logModel = new LogModel();
+            //logModel.Date = "01/01/22";
+            //logModel.Reps = 0;
+            //logModel.Sets = 0;
+            //logModel.Weights = 0;
+            //var logModelList = new List<LogModel>();
+            //logModelList.Add(logModel);
+            //model.Data = logModelList;
+            //model.Name = "Random Name";
 
 
-            ExerciseList = new List<ExerciseModel>() { model };
+            //ExerciseList = new List<ExerciseModel>() { model };
+            ExerciseList = _repository.GetExerciseList();
 
         }
         public Command ExerciseCommand { get; set; }

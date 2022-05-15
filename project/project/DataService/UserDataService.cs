@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using project.Repository;
 namespace project.DataService
 {
     public class UserDataService
@@ -14,6 +14,6 @@ namespace project.DataService
 
         }
         public static UserDataService Instance => instance ?? (instance = new UserDataService());
-        public MainViewModel MainViewModel => this.mainViewModel ?? (this.mainViewModel = new MainViewModel());
+        public MainViewModel MainViewModel => this.mainViewModel ?? (this.mainViewModel = new MainViewModel(new ExerciseRepository()));
     }
 }

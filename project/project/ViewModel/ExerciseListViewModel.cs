@@ -13,6 +13,7 @@ namespace project.ViewModel
     public class ExerciseListViewModel
     {
         private ExercisePopup _exercisePage;
+        private RemoveExercisePopup _removeExercisePage;
         private IPopupNavigation _popup { get; set; }
         public ObservableCollection<ExerciseModel> ExerciseList { get; set; }
         public ExerciseListViewModel()
@@ -25,11 +26,12 @@ namespace project.ViewModel
 
             _popup = PopupNavigation.Instance;
             _exercisePage = new ExercisePopup();
+            _removeExercisePage = new RemoveExercisePopup();
         }
 
-        private void RemoveButtonClicked(object obj)
+        private async void RemoveButtonClicked(object obj)
         {
-            throw new NotImplementedException();
+            await _popup.PushAsync(_removeExercisePage);
         }
 
         private async void AddButtonClicked(object obj)

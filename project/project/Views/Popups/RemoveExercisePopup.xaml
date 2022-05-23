@@ -5,6 +5,23 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     x:Class="project.Views.Popups.RemoveExercisePopup">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" BackgroundColor="Black" Command="{Binding BackButtonCommand}"></Button>
+        <ScrollView Grid.Row="1">
+            <ListView ItemsSource="{Binding ExerciseList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Name}" TextColor="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                
+                            </Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
     </Grid>
 </pages:PopupPage>

@@ -21,6 +21,8 @@ namespace project.Repository
 
             var list = new List<ExerciseModel>();
             list.Add(model);
+            model.Name = "Exercise 2";
+            list.Add(model);
             return list;
         }
     }

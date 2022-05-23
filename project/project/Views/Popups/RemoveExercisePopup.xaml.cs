@@ -15,7 +15,7 @@ namespace project.Views.Popups
         public RemoveExercisePopup()
         {
             InitializeComponent();
-            //BindingContext = ...
+            BindingContext = new RemoveExercisePopupViewModel();
         }
 
         protected override void OnAppearing()

@@ -77,5 +77,16 @@ namespace project.Views.Popups
         {
             return base.OnBackgroundClicked();
         }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item == null)
+            {
+                return;
+            }
+            var content = e.Item as ExerciseModel;
+            RemoveExercisePopupViewModel bind = BindingContext as RemoveExercisePopupViewModel;
+            bind.selectedItem = content;
+        }
     }
 }

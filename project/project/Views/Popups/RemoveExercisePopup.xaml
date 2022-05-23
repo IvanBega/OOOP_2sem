@@ -8,10 +8,11 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" BackgroundColor="Black" Command="{Binding BackButtonCommand}"></Button>
         <ScrollView Grid.Row="1">
-            <ListView ItemsSource="{Binding ExerciseList}">
+            <ListView ItemsSource="{Binding ExerciseList}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -23,5 +24,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
+        <Button Text="Remove" Grid.Row="2" TextColor="Red" HorizontalOptions="CenterAndExpand"
+                Command="{Binding RemoveCommand}"></Button>
     </Grid>
 </pages:PopupPage>

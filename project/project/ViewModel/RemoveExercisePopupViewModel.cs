@@ -13,6 +13,7 @@ namespace project.ViewModel
     {
         public Command BackButtonCommand { get; set; }
         public Command RemoveCommand { get; set; }
+        public ExerciseModel selectedItem { get; set; }
         public ObservableCollection<ExerciseModel> ExerciseList { get; set; }
         public RemoveExercisePopupViewModel()
         {
@@ -37,7 +38,8 @@ namespace project.ViewModel
         }
         public async void RemoveClicked()
         {
-            throw new NotImplementedException();
+            MainViewModel.RemoveExercise(selectedItem);
+            await PopupNavigation.Instance.PopAsync(false);
         }
 
         private void Sort<T>(ObservableCollection<T> collection, Comparison<T> comparison)

@@ -15,20 +15,6 @@ namespace project.ViewModel
         {
             _repository = repository;
             ExerciseCommand = new Command(ExerciseClicked);
-
-            //ExerciseModel model = new ExerciseModel();
-            //LogModel logModel = new LogModel();
-            //logModel.Date = "01/01/22";
-            //logModel.Reps = 0;
-            //logModel.Sets = 0;
-            //logModel.Weights = 0;
-            //var logModelList = new List<LogModel>();
-            //logModelList.Add(logModel);
-            //model.Data = logModelList;
-            //model.Name = "Random Name";
-
-
-            //ExerciseList = new List<ExerciseModel>() { model };
             ExerciseList = _repository.GetExerciseList();
 
         }
@@ -56,6 +42,13 @@ namespace project.ViewModel
             ExerciseList.Add(newExercise);
             App.Current.MainPage.Navigation.PopToRootAsync();
             Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+        }
+        public static void RemoveExercise(ExerciseModel exercise)
+        {
+            ExerciseList.Remove(exercise);
+            App.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+
         }
     }
 }

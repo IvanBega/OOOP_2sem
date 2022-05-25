@@ -1,4 +1,5 @@
-﻿using project.ViewModel;
+﻿using project.Model;
+using project.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace project.Views.Popups
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExercisePage : ContentPage
     {
-        public ExercisePage()
+        public ExercisePage(object content)
         {
             InitializeComponent();
-            BindingContext = new ExerciseViewModel();
+            BindingContext = new ExerciseViewModel(content as ExerciseModel);
         }
     }
 }

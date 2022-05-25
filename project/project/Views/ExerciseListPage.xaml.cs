@@ -26,7 +26,7 @@ namespace project.Views
                 return;
             ((ListView)sender).SelectedItem = null; // deselect
             var content = e.Item as ExerciseModel;
-            await Application.Current.MainPage.Navigation.PushAsync(new ExercisePage());
+            await Application.Current.MainPage.Navigation.PushAsync(new ExercisePage(content)); // pass content to Popup
         }
     }
 }

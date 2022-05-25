@@ -7,14 +7,6 @@
         <StackLayout Orientation="Vertical">
             <Frame BackgroundColor="BurlyWood" HeightRequest="30">
                 <StackLayout Orientation="Horizontal">
-                    <!--<Button x:Name="backButton" Margin="0, -27"
-                        CommandParameter="{x:Reference backButton}"
-                        Command="{Binding BackButtonCommand}"
-                        BackgroundColor="White"
-                        FontSize="34"
-                        Text="Назад до вправ" TextColor="Black">
-
-                    </Button>-->
                     <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand">
 
                     </Label>

@@ -20,7 +20,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Text="Додати нотатку" 
-                        
+                        Command="{Binding AddLogCommand}"
                         Grid.Row="0"
                         FontSize="Small" 
                         FontAttributes="Bold" 

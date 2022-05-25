@@ -15,8 +15,46 @@
                         Text="Назад до вправ" TextColor="Black">
 
                     </Button>-->
+                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand">
+
+                    </Label>
                 </StackLayout>
             </Frame>
+            <ScrollView Margin="10">
+                <Grid x:Name="LayoutRoot" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Button Text="Додати нотатку" 
+                        
+                        Grid.Row="0"
+                        FontSize="Small" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        TextColor="Gray"
+                        HeightRequest="60"
+                        Margin="10,5,10,0"
+                        CornerRadius="36"/>
+
+                    <ListView 
+                              Grid.Row="1"
+                              RowHeight="70"
+                              CachingStrategy="RecycleElement">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BackgroundColor="Aqua" Margin="5,5,5,5">
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </ScrollView>
         </StackLayout>
     </Grid>
 </ContentPage>

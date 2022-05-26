@@ -12,7 +12,6 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="1"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -22,9 +21,21 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="Введіть назву вправи: ">
-                        
-                    </Label>
+                    <Label Text="{Binding LogDate}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                           TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"></Label>
+                    <Label Text="Підхід" FontSize="Small" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label Text="Повторів" FontSize="Small" Grid.Row="1" Grid.Column="1"></Label>
+                    <Label Text="Вага" FontSize="Small" Grid.Row="1" Grid.Column="2"></Label>
+                    
+                    <Label Text="1" FontSize="Small" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label Text="2" FontSize="Small" Grid.Row="3" Grid.Column="0"></Label>
+                    
+                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"></Entry>
+                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"></Entry>
+                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"></Entry>
+                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="2"></Entry>
+                    <Button Text="Скасувати" Command="{Binding BackButtonCommand}" Grid.Row="4" Grid.Column="2" TextColor="Gray" FontSize="Small"></Button>
+                    
                 </Grid>
             </Frame>
         </ScrollView>

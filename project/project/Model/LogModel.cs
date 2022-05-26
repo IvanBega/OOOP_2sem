@@ -7,7 +7,7 @@ namespace project.Model
     public class LogModel
     {
         public string Date { get; set; }
-        public float Weights { get; set; }
+        public float Weights { get; set; } // вага
         public float Sets { get; set; } // кількість підходів
         public float Reps { get; set; } // кількість повторів в одному підході
     }

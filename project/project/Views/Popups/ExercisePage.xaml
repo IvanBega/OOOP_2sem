@@ -17,11 +17,13 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Button Text="Додати нотатку" 
                         Command="{Binding AddLogCommand}"
-                        Grid.Row="0"
+                        Grid.Row="2"
                         FontSize="Small" 
                         FontAttributes="Bold" 
                         HorizontalOptions="FillAndExpand"
@@ -29,17 +31,31 @@
                         TextColor="Gray"
                         HeightRequest="60"
                         Margin="10,5,10,0"
-                        CornerRadius="36"/>
+                        CornerRadius="32"/>
 
                     <ListView 
-                              Grid.Row="1"
+                              Grid.Row="3"
+                              ItemsSource="{Binding LogList}"
                               RowHeight="70"
                               CachingStrategy="RecycleElement">
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame BackgroundColor="Aqua" Margin="5,5,5,5">
+                                    <Frame BackgroundColor="White" Margin="10,5,10,5">
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Reps}" TextColor="Gray" FontSize="Small" Grid.Column="0"></Label>
+                                            <Label Text="{Binding Sets}" TextColor="Gray" FontSize="Small" Grid.Column="1"></Label>
+                                            <Label Text="{Binding Weights}" TextColor="Gray" FontSize="Small" Grid.Column="2"></Label>
+                                            <Label Text="{Binding Date}" TextColor="Gray" FontSize="Small" Grid.Column="3"></Label>
+                                        </Grid>
                                     </Frame>
                                 </ViewCell>
                             </DataTemplate>

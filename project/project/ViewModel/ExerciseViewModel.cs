@@ -26,7 +26,7 @@ namespace project.ViewModel
         public Command BackButtonCommand;
         public ExerciseViewModel(ExerciseModel content)
         {
-            _logPage = new LogPopup();
+            _logPage = new LogPopup(content.Name);
             _popup = PopupNavigation.Instance;
             Title = content.Name;
             LogList = new ObservableCollection<LogModel>();

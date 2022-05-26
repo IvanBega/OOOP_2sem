@@ -23,17 +23,18 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="{Binding LogDate}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
                            TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"></Label>
-                    <Label Text="Підхід" FontSize="Small" Grid.Row="1" Grid.Column="0"></Label>
-                    <Label Text="Повторів" FontSize="Small" Grid.Row="1" Grid.Column="1"></Label>
-                    <Label Text="Вага" FontSize="Small" Grid.Row="1" Grid.Column="2"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Підхід" FontSize="Small" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Повторів" FontSize="Small" Grid.Row="1" Grid.Column="1"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Вага" FontSize="Small" Grid.Row="1" Grid.Column="2"></Label>
+
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="1" FontSize="Small" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2" FontSize="Small" Grid.Row="3" Grid.Column="0"></Label>
                     
-                    <Label Text="1" FontSize="Small" Grid.Row="2" Grid.Column="0"></Label>
-                    <Label Text="2" FontSize="Small" Grid.Row="3" Grid.Column="0"></Label>
-                    
-                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"></Entry>
-                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"></Entry>
-                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"></Entry>
-                    <Entry Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="2"></Entry>
+                    <Entry Text="{Binding EntryReps1}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"></Entry>
+                    <Entry Text="{Binding EntryWeights1}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"></Entry>
+                    <Entry Text="{Binding EntryReps2}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"></Entry>
+                    <Entry Text="{Binding Weights2}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="2"></Entry>
+                    <Button Text="Підтвердити" Command="{Binding ConfirmCommand}" Grid.Row="4" Grid.Column="0"></Button>
                     <Button Text="Скасувати" Command="{Binding BackButtonCommand}" Grid.Row="4" Grid.Column="2" TextColor="Gray" FontSize="Small"></Button>
                     
                 </Grid>

@@ -50,5 +50,20 @@ namespace project.ViewModel
             Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
 
         }
+        public static void AddLog(LogModel log, string exerciseName)
+        {
+            ExerciseModel exercise = null;
+            foreach (ExerciseModel em in ExerciseList)
+            {
+                if (em.Name.Equals(exerciseName))
+                {
+                    exercise = em;
+                    em.Data.Add(log);
+                }
+            }
+            App.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+            Application.Current.MainPage.Navigation.PushAsync(new Views.Popups.ExercisePage((exercise)));
+        }
     }
 }

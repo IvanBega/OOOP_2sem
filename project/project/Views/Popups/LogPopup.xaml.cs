@@ -6,10 +6,10 @@ namespace project.Views.Popups
 {
     public partial class LogPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public LogPopup()
+        public LogPopup(string exerciseName)
         {
             InitializeComponent();
-            BindingContext = new ViewModel.LogPopupViewModel();
+            BindingContext = new ViewModel.LogPopupViewModel(exerciseName);
         }
 
         protected override void OnAppearing()

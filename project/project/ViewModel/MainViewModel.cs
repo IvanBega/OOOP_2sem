@@ -9,14 +9,18 @@ namespace project.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly IRepository _repository;
-        public static List<ExerciseModel> ExerciseList { get; set; }
-        public MainViewModel(IRepository repository)
+        public static List<ExerciseModel> ExerciseList { get; set; } = new List<ExerciseModel>();
+        public MainViewModel()
         {
-            _repository = repository;
+            //_repository = repository;
             ExerciseCommand = new Command(ExerciseClicked);
-            ExerciseList = _repository.GetExerciseList();
+            InitializeList();
 
+        }
+        private async void InitializeList()
+        {
+            ExerciseRepository database = await ExerciseRepository.Instance;
+            ExerciseList = database.GetItemsAsync();
         }
         public Command ExerciseCommand { get; set; }
         private void ExerciseClicked()
@@ -24,46 +28,56 @@ namespace project.ViewModel
             Application.Current.MainPage.Navigation.PushAsync(new ExerciseListPage());
             //Navigation
         }
-        public static void AddExercise(string entry)
+        public async static void AddExercise(string entry)
         {
             ExerciseModel newExercise = new ExerciseModel();
             newExercise.Name = entry;
 
             List<LogModel> newData = new List<LogModel>();
             LogModel data = new LogModel();
-            data.Reps = 0;
-            data.Sets = 0;
-            data.Weights = 0;
-            data.Date = DateTime.Now.ToString("dd/MM/yy");
-            newData.Add(data);
+            //data.Reps = 1;
+            //data.Sets = 1;
+            //data.Weights = 1;
+            //data.Date = DateTime.Now.ToString("dd/MM/yy");
+            //newData.Add(data);
 
             newExercise.Data = newData;
 
             ExerciseList.Add(newExercise);
-            App.Current.MainPage.Navigation.PopToRootAsync();
-            Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
-        }
-        public static void RemoveExercise(ExerciseModel exercise)
-        {
-            ExerciseList.Remove(exercise);
-            App.Current.MainPage.Navigation.PopToRootAsync();
-            Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+            ExerciseRepository database = await ExerciseRepository.Instance;
+            database.SaveItem(newExercise);
+            await App.Current.MainPage.Navigation.PopToRootAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
 
         }
-        public static void AddLog(LogModel log, string exerciseName)
+        public async static void RemoveExercise(ExerciseModel exercise)
+        {
+            ExerciseRepository database = await ExerciseRepository.Instance;
+            ExerciseList.Remove(exercise);
+            database.DeleteItem(exercise);
+            await App .Current.MainPage.Navigation.PopToRootAsync();
+            await Application .Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+
+        }
+        public async static void AddLog(LogModel log, string exerciseName)
         {
             ExerciseModel exercise = null;
             foreach (ExerciseModel em in ExerciseList)
             {
                 if (em.Name.Equals(exerciseName))
                 {
+                    ExerciseRepository database = await ExerciseRepository.Instance;
+                    database.DeleteItem(em);
+
                     exercise = em;
                     em.Data.Add(log);
+                    
+                    database.SaveItem(em);
                 }
             }
-            App.Current.MainPage.Navigation.PopToRootAsync();
-            Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
-            Application.Current.MainPage.Navigation.PushAsync(new Views.Popups.ExercisePage((exercise)));
+            await App.Current.MainPage.Navigation.PopToRootAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.Popups.ExercisePage((exercise)));
         }
     }
 }

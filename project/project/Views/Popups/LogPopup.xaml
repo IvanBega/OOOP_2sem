@@ -15,6 +15,9 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -29,13 +32,21 @@
 
                     <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="1" FontSize="Small" Grid.Row="2" Grid.Column="0"></Label>
                     <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2" FontSize="Small" Grid.Row="3" Grid.Column="0"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="3" FontSize="Small" Grid.Row="4" Grid.Column="0"></Label>
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="4" FontSize="Small" Grid.Row="5" Grid.Column="0"></Label>
                     
                     <Entry Text="{Binding EntryReps1}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"></Entry>
                     <Entry Text="{Binding EntryWeights1}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="2" Grid.Column="2"></Entry>
                     <Entry Text="{Binding EntryReps2}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"></Entry>
-                    <Entry Text="{Binding Weights2}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="2"></Entry>
-                    <Button Text="Підтвердити" Command="{Binding ConfirmCommand}" Grid.Row="4" Grid.Column="0"></Button>
-                    <Button Text="Скасувати" Command="{Binding BackButtonCommand}" Grid.Row="4" Grid.Column="2" TextColor="Gray" FontSize="Small"></Button>
+                    <Entry Text="{Binding EntryWeights2}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="3" Grid.Column="2"></Entry>
+                    <Entry Text="{Binding EntryReps3}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="4" Grid.Column="1"></Entry>
+                    <Entry Text="{Binding EntryWeights3}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="4" Grid.Column="2"></Entry>
+                    <Entry Text="{Binding EntryReps4}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="5" Grid.Column="1"></Entry>
+                    <Entry Text="{Binding EntryWeights4}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="5" Grid.Column="2"></Entry>
+                    <Label Text="{Binding ErrorLabel}" IsVisible="{Binding ErrorVisible}" Grid.Row="6" Grid.ColumnSpan="4" TextColor="Red" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                    
+                    <Button Text="Підтвердити" Command="{Binding ConfirmCommand}" Grid.Row="7" Grid.Column="0"></Button>
+                    <Button Text="Скасувати" Command="{Binding BackButtonCommand}" Grid.Row="7" Grid.Column="2" TextColor="Gray" FontSize="Small"></Button>
                     
                 </Grid>
             </Frame>

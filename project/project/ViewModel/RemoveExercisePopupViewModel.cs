@@ -38,6 +38,7 @@ namespace project.ViewModel
         }
         public async void RemoveClicked()
         {
+            if (selectedItem == null) return;
             MainViewModel.RemoveExercise(selectedItem);
             await PopupNavigation.Instance.PopAsync(false);
         }

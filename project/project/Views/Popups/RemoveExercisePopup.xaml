@@ -5,26 +5,37 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     x:Class="project.Views.Popups.RemoveExercisePopup">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" BackgroundColor="Black" Command="{Binding BackButtonCommand}"></Button>
-        <ScrollView Grid.Row="1">
-            <ListView ItemsSource="{Binding ExerciseList}" ItemTapped="ListView_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Name}" TextColor="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                                
-                            </Label>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <Button BackgroundColor="Black" Command="{Binding BackButtonCommand}"></Button>
+        <ScrollView>
+            <Frame BackgroundColor="White" WidthRequest="300">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Виберіть вправу для видалення:" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="4"></Label>
+                    <ListView Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding ExerciseList}" RowHeight="70" ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding Name}" TextColor="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                                    </Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Видалити" Grid.Row="2" TextColor="Red" HorizontalOptions="CenterAndExpand" Command="{Binding RemoveCommand}" Grid.Column="0"></Button>
+                    <Button Text="Назад" Grid.Row="2" TextColor="Gray" HorizontalOptions="CenterAndExpand" Command="{Binding BackButtonCommand}" Grid.Column="1"></Button>
+                </Grid>
+            </Frame>
         </ScrollView>
-        <Button Text="Remove" Grid.Row="2" TextColor="Red" HorizontalOptions="CenterAndExpand"
-                Command="{Binding RemoveCommand}"></Button>
+        
     </Grid>
 </pages:PopupPage>

@@ -17,7 +17,7 @@ namespace project.ViewModel
         private string title = "Title test";
         private IPopupNavigation _popup { get; set; }
         public ObservableCollection<LogModel> LogList { get; set; }
-        //public Command BackButtonCommand {get; set; }
+        public Command BackButtonCommand {get; set; }
         public Command AddLogCommand { get; set; }
         private LogPopup _logPage;
         private Chart _chart;
@@ -31,7 +31,6 @@ namespace project.ViewModel
             get { return _chart; }
             set { _chart = value; NotifyPropertyChanged(); }
         }
-        public Command BackButtonCommand;
         public ExerciseViewModel(ExerciseModel content)
         {
             _logPage = new LogPopup(content.Name);
@@ -52,7 +51,8 @@ namespace project.ViewModel
                 ValueLabelOrientation = Orientation.Horizontal,
                 LineMode = LineMode.Straight,
                 PointMode = PointMode.Square,
-                LabelTextSize = 36
+                LabelTextSize = 36,
+                LineSize = 6,
             };
 
 

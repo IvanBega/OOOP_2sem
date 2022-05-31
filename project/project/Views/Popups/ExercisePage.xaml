@@ -3,12 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="project.Views.Popups.ExercisePage"
+             NavigationPage.HasNavigationBar="False"
              >
     <Grid>
         <StackLayout Orientation="Vertical">
+            <Frame BackgroundColor="White" HeightRequest="30">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="backButton"
+                            Margin="0,-27"
+                            Command="{Binding BackButtonCommand}"
+                            CornerRadius="4"
+                            BackgroundColor="White"
+                            FontSize="34"
+                            VerticalOptions="StartAndExpand"
+                            Text="←" />
+                </StackLayout>
+            </Frame>
             <Frame BackgroundColor="BurlyWood" HeightRequest="30">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
 
                     </Label>
                 </StackLayout>
@@ -17,12 +30,12 @@
                 <Grid x:Name="LayoutRoot" VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="250" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Label Text="Графік" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
-                    <Frame BackgroundColor="Aqua" Grid.Row="1" Margin="10, 10, 10, 10">
+                    <Frame BackgroundColor="White" Grid.Row="1" Margin="10, 0, 10, 0">
                         <microcharts:ChartView Chart="{Binding Chart}"></microcharts:ChartView>
                     </Frame>
                     <Button Text="Додати нотатку" 
@@ -46,7 +59,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame BackgroundColor="White" Margin="10,5,10,5">
+                                    <Frame BackgroundColor="White" Margin="10,5,10,5" CornerRadius="30">
                                         <Grid HorizontalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>

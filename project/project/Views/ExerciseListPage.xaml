@@ -16,7 +16,7 @@
                             FontSize="34"
                             VerticalOptions="StartAndExpand"
                             Text="←" />
-                    <Label Text="Вправи на ноги" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Список вправ" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </Frame>
             <ScrollView Margin="10">
@@ -24,16 +24,12 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="250" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Frame BackgroundColor="AliceBlue" CornerRadius="28" Grid.Row="2" Margin="10,0,10,0">
-                    </Frame>
-
                     <ListView
-                              Grid.Row="3"
+                              Grid.Row="2"
                               RowHeight="70"
                               ItemTapped="ListView_ItemTapped"
                               ItemsSource="{Binding ExerciseList}"
@@ -57,7 +53,7 @@
 
                                             <Label Text="{Binding Name}" FontSize="Small" TextColor="Gray" FontAttributes="Bold" Grid.Column="0"/>
                                             <BoxView WidthRequest="1" BackgroundColor="LightGray" Grid.Column="1"/>
-                                            <Label Text="{Binding Data[0].Weights, StringFormat='{0:F2} kg'}" TextColor="Gray" FontSize="Small" Grid.Column="2"/>
+                                            <Label Text="{Binding Data[0].Weights, StringFormat='{0:F2} кг'}" TextColor="Gray" FontSize="Small" Grid.Column="2"/>
                                             <BoxView WidthRequest="1" BackgroundColor="LightGray" Grid.Column="3"/>
                                             <Label Text="{Binding Data[0].Date}" FontSize="Small" TextColor="Gray" Grid.Column="4"/>
                                         </Grid>

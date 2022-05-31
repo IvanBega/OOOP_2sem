@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="project.Views.Popups.ExercisePage"
              >
     <Grid>
@@ -22,7 +23,7 @@
                     </Grid.RowDefinitions>
                     <Label Text="Графік" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
                     <Frame BackgroundColor="Aqua" Grid.Row="1" Margin="10, 10, 10, 10">
-                        
+                        <microcharts:ChartView Chart="{Binding Chart}"></microcharts:ChartView>
                     </Frame>
                     <Button Text="Додати нотатку" 
                         Command="{Binding AddLogCommand}"

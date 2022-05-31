@@ -1,4 +1,5 @@
-﻿using project.Model;
+﻿using Microcharts;
+using project.Model;
 using project.Views.Popups;
 using Rg.Plugins.Popup.Contracts;
 using Rg.Plugins.Popup.Services;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
+using SkiaSharp;
 
 namespace project.ViewModel
 {
@@ -18,10 +20,16 @@ namespace project.ViewModel
         //public Command BackButtonCommand {get; set; }
         public Command AddLogCommand { get; set; }
         private LogPopup _logPage;
+        private Chart _chart;
         public string Title
         {
             get { return title; }
             set { title = value; NotifyPropertyChanged(); }
+        }
+        public Chart Chart
+        {
+            get { return _chart; }
+            set { _chart = value; NotifyPropertyChanged(); }
         }
         public Command BackButtonCommand;
         public ExerciseViewModel(ExerciseModel content)
@@ -35,6 +43,20 @@ namespace project.ViewModel
                 LogList.Add(lm);
             AddLogCommand = new Command(AddLogClicked);
 
+            List<ChartEntry> entries = LoadGraph();
+            Chart = new LineChart()
+            {
+                Entries = entries,
+                MinValue = 0,
+                LabelOrientation = Orientation.Horizontal,
+                ValueLabelOrientation = Orientation.Horizontal,
+                LineMode = LineMode.Straight,
+                PointMode = PointMode.Square,
+                LabelTextSize = 36
+            };
+
+
+
         }
 
         private async void AddLogClicked(object obj)
@@ -45,6 +67,24 @@ namespace project.ViewModel
         private void BackButtonClicked(object obj)
         {
             Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private List<ChartEntry> LoadGraph()
+        {
+            List<ChartEntry> entries = new List<ChartEntry>();
+
+            foreach(LogModel lm in LogList)
+            {
+                int value = (int)(lm.Reps * lm.Sets * lm.Weights);
+                ChartEntry e = new ChartEntry(value)
+                {
+                    ValueLabel = value.ToString(),
+                    Label = lm.Date
+                };
+                entries.Add(e);
+            }
+
+            return entries;
         }
     }
 }

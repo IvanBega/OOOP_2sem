@@ -5,6 +5,7 @@ using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
@@ -19,7 +20,11 @@ namespace project.ViewModel
         public ExerciseListViewModel()
         {
             ExerciseList = LoadList();
-
+            Sort(ExerciseList, SortByName);
+            foreach (ExerciseModel em in ExerciseList)
+            {
+                em.Data.Sort(SortByDate);
+            }
             BackButtonCommand = new Command(BackButtonClicked);
             AddExerciseCommand = new Command(AddButtonClicked);
             RemoveExerciseCommand = new Command(RemoveButtonClicked);
@@ -27,6 +32,11 @@ namespace project.ViewModel
             _popup = PopupNavigation.Instance;
             _exercisePage = new ExercisePopup();
             _removeExercisePage = new RemoveExercisePopup();
+        }
+
+        private int SortByName(ExerciseModel a, ExerciseModel b)
+        {
+            string a1 = a.Name; string b1 = b.Name; return a1.CompareTo(b1);
         }
 
         private async void RemoveButtonClicked(object obj)
@@ -52,7 +62,26 @@ namespace project.ViewModel
             ObservableCollection<ExerciseModel> data = new ObservableCollection<ExerciseModel>();
             foreach (ExerciseModel em in MainViewModel.ExerciseList)
                 data.Add(em);
+
             return data;
+        }
+
+        int SortByDate(LogModel a, LogModel b)
+        {
+            DateTime a1 = DateTime.ParseExact(a.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime b1 = DateTime.ParseExact(b.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            return a1.CompareTo(b1) * -1;
+        }
+
+        private void Sort<T>(ObservableCollection<T> collection, Comparison<T> comparison)
+        {
+            var sortableList = new List<T>(collection);
+            sortableList.Sort(comparison);
+
+            for (int i = 0; i < sortableList.Count; i++)
+            {
+                collection.Move(collection.IndexOf(sortableList[i]), i);
+            }
         }
     }
 }

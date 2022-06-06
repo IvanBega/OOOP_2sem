@@ -36,6 +36,7 @@ namespace project.ViewModel
         {
             _logPage = new LogPopup(content.Name);
             _popup = PopupNavigation.Instance;
+            //content.Data.Sort(SortByDate);
             Title = content.Name;
             LogList = new ObservableCollection<LogModel>();
             BackButtonCommand = new Command(BackButtonClicked);

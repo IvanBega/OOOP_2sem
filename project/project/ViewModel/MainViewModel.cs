@@ -13,6 +13,7 @@ namespace project.ViewModel
         private static ExerciseRepository database;
         public MainViewModel()
         {
+
             ExerciseCommand = new Command(ExerciseClicked);
             InitializeList();
 
@@ -65,10 +66,10 @@ namespace project.ViewModel
                     database.DeleteItem(em);
 
                     exercise = em;
-                    em.Data.Add(log);
+                    em.Data.Insert(0, log);
                     if (em.Data.Count > Utils.Constants.MaxLogPerExerciseCount)
                     {
-                        em.Data.RemoveAt(0);
+                        em.Data.RemoveAt(em.Data.Count - 1);
                     }
                     
                     database.SaveItem(em);
@@ -76,7 +77,7 @@ namespace project.ViewModel
             }
             await App.Current.MainPage.Navigation.PopToRootAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new Views.ExerciseListPage());
-            await Application.Current.MainPage.Navigation.PushAsync(new Views.Popups.ExercisePage((exercise)));
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.Popups.ExercisePage(exercise));
         }
     }
 }

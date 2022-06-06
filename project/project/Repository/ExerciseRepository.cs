@@ -50,7 +50,7 @@ namespace project.Repository
             CreateTableResult result = Database.CreateTable<ExerciseModel>();
             return instance;
         });
-        public List<ExerciseModel> GetItemsAsync()
+        public List<ExerciseModel> GetAllItems()
         {
             //return Database.Table<ExerciseModel>().ToListAsync();
             return SQLiteNetExtensions.Extensions.ReadOperations.GetAllWithChildren<ExerciseModel>(Database);

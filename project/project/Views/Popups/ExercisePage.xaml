@@ -68,9 +68,9 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding Reps}" TextColor="Gray" FontSize="Small" Grid.Column="0"></Label>
-                                            <Label Text="{Binding Sets}" TextColor="Gray" FontSize="Small" Grid.Column="1"></Label>
-                                            <Label Text="{Binding Weights}" TextColor="Gray" FontSize="Small" Grid.Column="2"></Label>
+                                            <Label Text="{Binding Reps, StringFormat='{0} - повтори'}" TextColor="Gray" FontSize="Small" Grid.Column="0"></Label>
+                                            <Label Text="{Binding Sets, StringFormat='{0} - підходи'}" TextColor="Gray" FontSize="Small" Grid.Column="1"></Label>
+                                            <Label Text="{Binding Weights, StringFormat='{0} кг'}" TextColor="Gray" FontSize="Small" Grid.Column="2"></Label>
                                             <Label Text="{Binding Date}" TextColor="Gray" FontSize="Small" Grid.Column="3"></Label>
                                         </Grid>
                                     </Frame>

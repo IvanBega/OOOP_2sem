@@ -21,7 +21,7 @@ namespace project.ViewModel
         private string exerciseName;
         private int _amountOfSets = 0;
         private string errorLabel = "";
-        private bool errorVisible = false;
+        private bool errorVisible = true;
         public double EntryReps1
         {
             get { return _entryReps1; }
@@ -89,8 +89,6 @@ namespace project.ViewModel
         {
             if (!ValidateData())
             {
-                ErrorLabel = "Дані введені некоректно!";
-                ErrorVisible = true;
                 return;
             }
 
@@ -120,18 +118,22 @@ namespace project.ViewModel
 
                 if (EntryReps1 < 0 || EntryReps2 < 0 || EntryReps3 < 0 || EntryReps4 < 0)
                 {
+                    ErrorLabel = "Кількість повторів не може бути від'ємна";
                     return false;
                 }
                 if (EntryWeights1 < 0 || EntryWeights2 < 0 || EntryWeights3 < 0 || EntryWeights4 < 0)
                 {
+                    ErrorLabel = "Вага не може бути від'ємна";
                     return false;
                 }
                 if (EntryReps1 > Constants.MaxEntryReps || EntryReps2 > Constants.MaxEntryReps || EntryReps3 > Constants.MaxEntryReps || EntryReps4 > Constants.MaxEntryReps)
                 {
+                    ErrorLabel = "Максимальна кількість повторів: " + Constants.MaxEntryReps;
                     return false;
                 }
                 if (EntryWeights1 > Constants.MaxEntryWeights || EntryWeights2 > Constants.MaxEntryWeights || EntryWeights3 > Constants.MaxEntryWeights || EntryWeights4 > Constants.MaxEntryWeights)
                 {
+                    ErrorLabel = "Максимальна вага: " + Constants.MaxEntryWeights;
                     return false;
                 }
                 return true;

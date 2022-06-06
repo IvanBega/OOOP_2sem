@@ -8,7 +8,7 @@ namespace project.Repository
 {
     public interface IRepository
     {
-        List<ExerciseModel> GetItemsAsync();
+        List<ExerciseModel> GetAllItems();
         void SaveItem(ExerciseModel item);
         void DeleteItem(ExerciseModel item);
     }

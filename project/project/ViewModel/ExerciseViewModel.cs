@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 using SkiaSharp;
+using System.Globalization;
 
 namespace project.ViewModel
 {
@@ -85,6 +86,12 @@ namespace project.ViewModel
             }
 
             return entries;
+        }
+        int SortByDate(LogModel a, LogModel b)
+        {
+            DateTime a1 = DateTime.ParseExact(a.Date, "dd/MM/yy", CultureInfo.InvariantCulture);
+            DateTime b1 = DateTime.ParseExact(b.Date, "dd/MM/yy", CultureInfo.InvariantCulture);
+            return a1.CompareTo(b1) * -1;
         }
     }
 }

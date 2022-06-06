@@ -24,7 +24,17 @@ namespace project.ViewModel
 
         private async void ConfirmClicked(object obj)
         {
-            MainViewModel.AddExercise(Entry);
+            try
+            {
+                if (Entry.Length > Utils.Constants.MaxExerciseNameLength)
+                    return;
+                MainViewModel.AddExercise(Entry);
+            }
+
+            catch
+            {
+                return;
+            }
             await PopupNavigation.Instance.PopAsync(false);
         }
 

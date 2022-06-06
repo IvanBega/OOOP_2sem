@@ -43,9 +43,10 @@
                     <Entry Text="{Binding EntryWeights3}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="4" Grid.Column="2"></Entry>
                     <Entry Text="{Binding EntryReps4}" HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="5" Grid.Column="1"></Entry>
                     <Entry Text="{Binding EntryWeights4}"  HorizontalTextAlignment="Center" Placeholder="0" FontSize="Medium" Keyboard="Numeric" Grid.Row="5" Grid.Column="2"></Entry>
-                    <Label Text="{Binding ErrorLabel}" IsVisible="{Binding ErrorVisible}" Grid.Row="6" Grid.ColumnSpan="4" TextColor="Red" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+
+                    <Label Text="{Binding ErrorLabel}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" TextColor="Red" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
                     
-                    <Button Text="Підтвердити" Command="{Binding ConfirmCommand}" Grid.Row="7" Grid.Column="0"></Button>
+                    <Button Text="Підтвердити" Command="{Binding ConfirmCommand}" Grid.Row="7" Grid.Column="0" FontSize="Small"></Button>
                     <Button Text="Скасувати" Command="{Binding BackButtonCommand}" Grid.Row="7" Grid.Column="2" TextColor="Gray" FontSize="Small"></Button>
                     
                 </Grid>

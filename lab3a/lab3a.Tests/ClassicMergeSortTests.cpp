@@ -5,7 +5,7 @@
 TEST(ClassicMergeSort, NoThrowIfVectorIsEmpty) 
 {
 	std::vector<int> v{};
-	ClassicMergeSort<int> sorter;
+	ClassicSortingStrategy<int> sorter;
 	sorter.setArray(v);
 	EXPECT_NO_THROW(sorter.sort());
 }
@@ -13,7 +13,7 @@ TEST(ClassicMergeSort, NoThrowIfVectorIsEmpty)
 TEST(ClassicMergeSort, SortOneElement)
 {
 	std::vector<int> v{1};
-	ClassicMergeSort<int> sorter;
+	ClassicSortingStrategy<int> sorter;
 	sorter.setArray(v);
 	sorter.sort();
 	std::vector<int> actual = sorter.getArray();
@@ -26,7 +26,7 @@ TEST(ClassicMergeSort, SortOneElement)
 TEST(ClassicMergeSort, SortSameElements)
 {
 	std::vector<int> v{ 1, 1, 1, 1, 1 };
-	ClassicMergeSort<int> sorter;
+	ClassicSortingStrategy<int> sorter;
 	sorter.setArray(v);
 	sorter.sort();
 	std::vector<int> actual = sorter.getArray();
@@ -42,7 +42,7 @@ TEST(ClassicMergeSort, SortDifferentElements)
 {
 	std::vector<int> toSort{ 18, 62, 31, -7, 4, 25 };
 	std::vector<int> expected{ -7, 4, 18, 25, 31, 62 };
-	ClassicMergeSort<int> sorter;
+	ClassicSortingStrategy<int> sorter;
 	sorter.setArray(toSort);
 	sorter.sort();
 	std::vector<int> actual = sorter.getArray();
@@ -59,7 +59,7 @@ TEST(ClassicMergeSort, SortRandomElements)
 	int vector_size = 100;
 	std::vector<int> randomVector = Utils::randVec(0, 1000000, vector_size);
 
-	ClassicMergeSort<int> sorter;
+	ClassicSortingStrategy<int> sorter;
 	sorter.setArray(randomVector);
 	sorter.sort();
 

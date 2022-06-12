@@ -3,7 +3,7 @@
 #include <thread>
 #include "MergeSort.h"
 template<typename T>
-class ParallelMergeSort : public MergeSort<T>
+class ParallelSortingStrategy : public SortingStrategy<T>
 {
 private:
 	int maximumThreadCount = std::thread::hardware_concurrency();
@@ -17,9 +17,9 @@ public:
 /// </summary>
 /// <typeparam name="T"></typeparam>
 template<typename T>
-void ParallelMergeSort<T>::sort()
+void ParallelSortingStrategy<T>::sort()
 {
-	merge_sort(0, MergeSort<T>::vec.size());
+	merge_sort(0, SortingStrategy<T>::vec.size());
 }
 /// <summary>
 /// Parallel Merge Sort method
@@ -28,14 +28,14 @@ void ParallelMergeSort<T>::sort()
 /// <param name="start"></param>
 /// <param name="end"></param>
 template<typename T>
-void ParallelMergeSort<T>::merge_sort(int start, int end)
+void ParallelSortingStrategy<T>::merge_sort(int start, int end)
 {
 	if (end - start <= 1)
 		return;
 	int middle = (start + end) / 2;
 	if (currentThreads < maximumThreadCount)
 	{
-		std::thread th(&ParallelMergeSort<T>::merge_sort, this, start, middle);
+		std::thread th(&ParallelSortingStrategy<T>::merge_sort, this, start, middle);
 		currentThreads++;
 		merge_sort(middle, end);
 		if (th.joinable())
@@ -49,5 +49,5 @@ void ParallelMergeSort<T>::merge_sort(int start, int end)
 		merge_sort(start, middle);
 		merge_sort(middle, end);
 	}
-	MergeSort<T>::merge(start, middle, end);
+	SortingStrategy<T>::merge(start, middle, end);
 }

@@ -5,7 +5,7 @@
 /// </summary>
 /// <typeparam name="T"></typeparam>
 template<typename T>
-class MergeSort
+class SortingStrategy
 {
 
 protected:
@@ -17,8 +17,8 @@ public:
 	void setArray(std::vector<T> vec);
 	std::vector<T> getArray();
 	virtual void sort()= 0;
-	MergeSort();
-	virtual ~MergeSort();
+	SortingStrategy();
+	virtual ~SortingStrategy();
 };
 /// <summary>
 /// Copies elements to vector "copy" from main array vec
@@ -28,7 +28,7 @@ public:
 /// <param name="start"></param>
 /// <param name="amount"></param>
 template<typename T>
-void MergeSort<T>::copyArray(std::vector<T>& copy, int start, int amount)
+void SortingStrategy<T>::copyArray(std::vector<T>& copy, int start, int amount)
 {
 	copy.clear();
 	for (unsigned int i = 0; i < amount; i++)
@@ -42,7 +42,7 @@ void MergeSort<T>::copyArray(std::vector<T>& copy, int start, int amount)
 /// <typeparam name="T"></typeparam>
 /// <param name="vec"></param>
 template<typename T>
-void MergeSort<T>::setArray(std::vector<T> vec)
+void SortingStrategy<T>::setArray(std::vector<T> vec)
 {
 	this->vec = std::move(vec);
 }
@@ -52,16 +52,16 @@ void MergeSort<T>::setArray(std::vector<T> vec)
 /// <typeparam name="T"></typeparam>
 /// <returns></returns>
 template<typename T>
-std::vector<T> MergeSort<T>::getArray()
+std::vector<T> SortingStrategy<T>::getArray()
 {
 	return this->vec;
 }
 template<typename T>
-inline MergeSort<T>::MergeSort()
+inline SortingStrategy<T>::SortingStrategy()
 {
 }
 template<typename T>
-inline MergeSort<T>::~MergeSort()
+inline SortingStrategy<T>::~SortingStrategy()
 {
 }
 /// <summary>
@@ -72,32 +72,32 @@ inline MergeSort<T>::~MergeSort()
 /// <param name="middle"></param>
 /// <param name="end"></param>
 template<typename T>
-void MergeSort<T>::merge(int start, int middle, int end)
+void SortingStrategy<T>::merge(int start, int middle, int end)
 {
 	int leftIndex = middle - start;
 	int rightIndex = end - middle;
 	int i = 0, j = 0, k = start;
 	std::vector<T> leftPart, rightPart;
-	MergeSort<T>::copyArray(leftPart, start, leftIndex);
-	MergeSort<T>::copyArray(rightPart, middle, rightIndex);
+	SortingStrategy<T>::copyArray(leftPart, start, leftIndex);
+	SortingStrategy<T>::copyArray(rightPart, middle, rightIndex);
 
 	while (i < leftIndex && j < rightIndex)
 	{
 		if (leftPart[i] <= rightPart[j])
 		{
-			MergeSort<T>::vec[k] = leftPart[i];
+			SortingStrategy<T>::vec[k] = leftPart[i];
 			i++;
 		}
 		else
 		{
-			MergeSort<T>::vec[k] = rightPart[j];
+			SortingStrategy<T>::vec[k] = rightPart[j];
 			j++;
 		}
 		k++;
 	}
 	for (; i < leftIndex; i++, k++)
-		MergeSort<T>::vec[k] = leftPart[i];
+		SortingStrategy<T>::vec[k] = leftPart[i];
 	for (; j < rightIndex; j++, k++)
-		MergeSort<T>::vec[k] = rightPart[j];
+		SortingStrategy<T>::vec[k] = rightPart[j];
 
 }

@@ -21,7 +21,7 @@ class CompareSorts
 {
 private:
 	std::vector<int> range;
-	MergeSort<T>* sorter = nullptr;
+	SortingStrategy<T>* sorter = nullptr;
 	void MergeSort();
 	void MergeTest(int arraySize);
 	int minValue = 0;
@@ -53,14 +53,14 @@ CompareSorts<T>::CompareSorts(int testsCount) : testsCount(testsCount)
 template<class T>
 void CompareSorts<T>::TestParallel(std::vector<int> range)
 {
-	sorter = new ParallelMergeSort<T>();
+	sorter = new ParallelSortingStrategy<T>();
 	this->range = std::move(range);
 	MergeSort();
 }
 template<class T>
 void CompareSorts<T>::TestClassic(std::vector<int> range)
 {
-	sorter = new ClassicMergeSort<T>();
+	sorter = new ClassicSortingStrategy<T>();
 	this->range = std::move(range);
 	MergeSort();
 }

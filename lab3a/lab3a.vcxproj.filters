@@ -33,6 +33,12 @@
     <ClCompile Include="CompareSorts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sorter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Strategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassicMergeSort.h">
@@ -48,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CompareSorts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Strategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,7 +10,7 @@ namespace project.ViewModel
     public class MainViewModel : BaseViewModel
     {
         public static List<ExerciseModel> ExerciseList { get; set; } = new List<ExerciseModel>();
-        private static ExerciseRepository database;
+        private static IRepository database;
         public MainViewModel()
         {
 

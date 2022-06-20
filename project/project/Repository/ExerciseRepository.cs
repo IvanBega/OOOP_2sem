@@ -44,9 +44,9 @@ namespace project.Repository
         }
 
         static SQLiteConnection Database;
-        public static readonly AsyncLazy<ExerciseRepository> Instance = new AsyncLazy<ExerciseRepository>(() =>
+        public static readonly AsyncLazy<IRepository> Instance = new AsyncLazy<IRepository>(() =>
         {
-            var instance = new ExerciseRepository();
+            IRepository instance = project.Utils.Factory.CreateRepository();
             CreateTableResult result = Database.CreateTable<ExerciseModel>();
             return instance;
         });
